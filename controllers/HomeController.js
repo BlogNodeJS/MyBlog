@@ -8,6 +8,10 @@ var HomeController = {
     },
     login:function(req, res){
 
+        var username = req.getParameter("txtUsername");
+        var password = req.getParameter("txtPassword");
+
+        
     }
 };
 

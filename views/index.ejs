@@ -11,10 +11,11 @@
   </head>
   <body>
   <!--<link href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css" rel="stylesheet">-->
+  <a href=welcome.ejs>login here</a>
 <div>
   <div class="container">
       <div class="row">
-          <form class="form-signin mg-btm">
+          <form class="form-signin mg-btm" action="/my_blog" method="post">
               <h3 class="heading-desc">
                   <button type="button" class="close pull-right" aria-hidden="true">×</button>
                   Login to BlogNodeJS</h3>
@@ -36,8 +37,8 @@
               </div>
               <div class="main">
 
-                  <input type="text" class="form-control" placeholder="Email" autofocus>
-                  <input type="password" class="form-control" placeholder="Password">
+                  <input type="text" class="form-control" placeholder="Username..." name="txtUsername" autofocus>
+                  <input type="password" class="form-control" placeholder="Password..." name="txtPassword">
 
                   Are you a business? <a href=""> Get started here</a>
                   <span class="clearfix"></span>
