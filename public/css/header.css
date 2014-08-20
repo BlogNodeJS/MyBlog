@@ -1,0 +1,145 @@
+@import url(http://fonts.googleapis.com/css?family=Kreon:400,700);
+
+html,
+body {
+    height: 100%;
+    /* The html and body elements cannot have any padding or margin. */
+    -webkit-font-smoothing: antialiased;
+    font: normal 14px arial,sans-serif;
+}
+
+.row {
+    margin-left:10px;
+    margin-right:10px;
+    margin-bottom: 20px;
+}
+
+/* Wrapper for page content to push down footer */
+#wrap {
+    min-height: 100%;
+    height: auto !important;
+    height: 100%;
+    /* Negative indent footer by its height */
+    margin: 0 auto -60px;
+    /* Pad bottom by footer height */
+    padding: 0 0 60px;
+}
+
+
+
+/* Custom page CSS
+-------------------------------------------------- */
+
+#wrap > .container {
+    padding: 60px 15px 0;
+}
+.container .credit {
+    margin: 20px 0;
+    margin-bottom: 20px;
+}
+
+
+h1,h2,h3,h4 {
+    font-family: 'Kreon', serif;
+    vertical-align:middle;
+}
+
+header {
+    background: #428bca;
+    height:200px;
+    color:#000000;
+    -moz-border-radius: 10px;
+    -webkit-border-radius: 10px;
+    -ms-border-radius: 10px;
+    -o-border-radius: 10px;
+    border-radius: 10px;
+}
+
+header h1,header h2,header h3 a,header a,header a:hover {
+    color:White;
+    font-weight:800;
+    text-decoration:none;
+}
+
+/*header h3 {*/
+    /*font-family: 'Kreon', serif;*/
+    /*background: #ffcc33;*/
+    /*padding:10px;*/
+    /*border-radius:3px;*/
+    /*font-size:34px;*/
+    /*padding:12px 10px 6px 10px;*/
+/*}*/
+
+header .dropdown-menu {
+    top:74px;
+    background: #ffcc33;
+    border-width:0;
+}
+
+
+@media (min-width: 767px) {
+    .navbar-nav.nav-justified > li{
+        float:none;
+    }
+}
+.panel {
+    border-width:0;
+}
+
+@media (max-width: 768px) {
+    header {
+        height: 95px;
+    }
+}
+
+.scroll-top {
+    position:fixed;
+    bottom:0;
+    right:6%;
+    z-index:100;
+    background: #ffcc33;
+    font-size:24px;
+    border-top-left-radius:3px;
+    border-top-right-radius:3px;
+}
+.scroll-top a:link,.scroll-top a:visited {
+    color:#222;
+}
+
+
+section {
+    color: #ffffff;
+    min-height: 400px;
+    height: auto !important;
+    height: 100%;
+    padding-top:100px;
+}
+
+.bg-1 {
+    background: url('http://www.bootply.com/assets/example/bg_4.jpg') no-repeat center center fixed;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+}
+
+.bg-2 {
+    background: url('http://www.bootply.com/assets/example/bg_5.jpg') no-repeat center center fixed;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+}
+
+.bg-3 {
+    background: url('http://www.bootply.com/assets/example/bg_6.jpg') no-repeat center center fixed;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+}
+
+.bg-4 {
+    padding-top:30px;
+    background-image: -webkit-gradient(linear, left top, left bottom, from(rgba(20,20,20,0.2)),to(rgba(255,255,255,0)), color-stop(1,#000));
+}
