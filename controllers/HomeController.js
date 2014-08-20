@@ -38,7 +38,11 @@ var HomeController = {
     goMyblog: function (req, res) {
         var username = 'Sẽ thay vô sau';
         res.render('myblog', { title: '' + username + ' - My Blog', username: username})
-    }/*
+    },
+    home:function(req,res){
+        res.render('home');
+    }
+    /*
      changeInformation: function (req, res) {
      var fullname = req.getParameter("txtFullname");
      var phone = req.getParameter("txtPhone");
@@ -83,6 +87,7 @@ module.exports = function (router) {
     router.get('/login.ejs', HomeController.goLogin);
     router.post('/login.ejs', HomeController.login);
     router.get('/myblog.ejs', HomeController.goMyblog);
+    router.get('/home.ejs', HomeController.home);
     //router.get('/changeInformation', HomeController.changeInformation());
     return router;
 };
