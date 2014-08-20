@@ -1,5 +1,8 @@
-var postsSchema = new mongoose.Schema({
-    _it: int,
+var mongoose = require('mongoose');
+var Schema = mongoose.Schema;
+
+var postsSchema = new Schema({
+    _it: Number,
     title: String,
     content: String,
     date: String,

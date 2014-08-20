@@ -4,13 +4,13 @@
     <option name="serverConfigurations">
       <list>
         <ServerConfiguration>
-          <option name="label" value="BlogNodeJS" />
+          <option name="label" value="ConnectToMyBlog" />
           <option name="serverUrls">
             <list>
               <option value="localhost:27017" />
             </list>
           </option>
-          <option name="userDatabase" value="BlogNodeJS" />
+          <option name="userDatabase" value="MyBlog" />
         </ServerConfiguration>
       </list>
     </option>

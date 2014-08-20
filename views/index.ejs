@@ -1,65 +1,34 @@
 <!DOCTYPE html>
 <html>
-  <head>
+<head>
     <title><%= title %></title>
-      <link rel='stylesheet' href='/css/bootstrap.min.css' />
-      <!--for responsive feature-->
-      <meta name='viewport' content='width=device-width, initial-scale=1.0'>
-      <link rel='stylesheet' href='/css/bootstrap-responsive.css'>
-      <link rel='stylesheet' href='/css/style.css'>
+    <link rel='stylesheet' href='/css/bootstrap.min.css'/>
+    <!--for responsive feature-->
+    <meta name='viewport' content='width=device-width, initial-scale=1.0'>
+    <link rel='stylesheet' href='/css/bootstrap-responsive.css'>
+    <link rel='stylesheet' href='/css/style.css'>
+</head>
+<body>
+<!--<link href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css" rel="stylesheet">-->
+<script>
+    /*var obj = {
+        id: "Đây là obj.",
+        sayhello: function() {
+            console.log("this");
+        }
+    };
+    obj.f1();*/
 
-  </head>
-  <body>
-  <!--<link href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css" rel="stylesheet">-->
-  <a href=welcome.ejs>login here</a>
-<div>
-  <div class="container">
-      <div class="row">
-          <form class="form-signin mg-btm" action="/my_blog" method="post">
-              <h3 class="heading-desc">
-                  <button type="button" class="close pull-right" aria-hidden="true">×</button>
-                  Login to BlogNodeJS</h3>
-              <div class="social-box">
-                  <div class="row mg-btm">
-                      <div class="col-md-12">
-                          <a href="#" class="btn btn-primary btn-block">
-                              <i class="icon-facebook"></i>    Login with Facebook
-                          </a>
-                      </div>
-                  </div>
-                  <div class="row">
-                      <div class="col-md-12">
-                          <a href="#" class="btn btn-block btn-social btn-google-plus">
-                              <i class="fa fa-google-plus"></i> Sign in with Google
-                          </a>
-                      </div>
-                  </div>
-              </div>
-              <div class="main">
-
-                  <input type="text" class="form-control" placeholder="Username..." name="txtUsername" autofocus>
-                  <input type="password" class="form-control" placeholder="Password..." name="txtPassword">
-
-                  Are you a business? <a href=""> Get started here</a>
-                  <span class="clearfix"></span>
-              </div>
-              <div class="login-footer">
-                  <div class="row">
-                      <div class="col-xs-6 col-md-6">
-                          <div class="left-section">
-                              <a href="">Forgot your password?</a>
-                              <a href="">Sign up now</a>
-                          </div>
-                      </div>
-                      <div class="col-xs-6 col-md-6 pull-right">
-                          <button type="submit" class="btn btn-large btn-danger pull-right">Login</button>
-                      </div>
-                  </div>
-
-              </div>
-          </form>
-      </div>
-  </div>
-</div>
-  </body>
+    function sayhello() {
+        document.getElementById("demo").innerHTML += "Hello World";
+    }
+</script>
+<button onclick="sayhello()" name="btnHelllo">Click to say "Hell World"</button>
+<br>
+<a href="/login.ejs">Login</a>
+<br>
+<a href="/myblog.ejs">MyBlog</a>
+<br>
+<p id="demo"></p>
+</body>
 </html>
