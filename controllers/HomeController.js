@@ -1,16 +1,8 @@
-var express = require('express');
-var router = express.Router();
-var mongoose = require('mongoose'),
-    Schema = mongoose.Schema;
-var app = express;
-var usersSchema = require('../models/UsersSchema');
+
 var postsSchema = require('../models/PostsSchema');
-var categorysSchema = require('../models/CategorysSchema');
-var tagsSchema = require('../models/TagsSchema');
 
-var HomeController = {
+var homeController = {
     index: function (req, res) {
-
         res.render('index', { title: 'Hù ha ha Kun' });
     },
 
@@ -19,29 +11,32 @@ var HomeController = {
         res.render('login', { title: 'Login to your account...'});
     },
 
-    login: function (req, res) {
-
-        res.render('index');
-        /*var username = req.getParameter("txtUsername");
-        var password = req.getParameter("txtPassword");
-        //code tìm:
-        //var users = mongoose.model(User, usersSchema);
-        //users.findOne({'username': 'username', 'password': password}, function (err, user) {
-            if (username.length>0) {
-                req.render('myblog', {username: username});
-            } else {
-                req.render('login', {error: "Username hoặc password không đúng."});
+    findAllPost: function (req, res) {
+        postsSchema.posts.find( function(err, arrPost){
+            if(err == null) {
+                if(arrPost && arrPost.length > 0) {
+                    res.render('home', {arrPost: arrPost});
+                }
             }
-        //})*/
+        });
     },
 
-    goMyblog: function (req, res) {
-        var username = 'Sẽ thay vô sau';
-        res.render('myblog', { title: '' + username + ' - My Blog', username: username})
-    },
-    home:function(req,res){
-        res.render('home');
+    findPostById: function (req, res) {
+        var id = parseInt(req.param('id'));
+        postsSchema.posts.find({_id:id }, function(err, p){
+            if(err == null) {
+                if(p && p.length > 0) {
+                    res.render('myblog', {arrPost: p});
+                }
+            }
+        });
     }
+
+
+//    goMyblog: function (req, res) {
+//        var username = 'Sẽ thay vô sau';
+//        res.render('myblog', { title: '' + username + ' - My Blog', username: username})
+//    },
     /*
      changeInformation: function (req, res) {
      var fullname = req.getParameter("txtFullname");
@@ -83,11 +78,13 @@ var HomeController = {
 };
 
 module.exports = function (router) {
-    router.get('/', HomeController.index);
-    router.get('/login.ejs', HomeController.goLogin);
-    router.post('/login.ejs', HomeController.login);
-    router.get('/myblog.ejs', HomeController.goMyblog);
-    router.get('/home.ejs', HomeController.home);
+    router.get('/', homeController.findAllPost);
+    router.get('/postDetail', homeController.findPostById);
+//    router.get('/', HomeController.index);
+//    router.get('/login.ejs', HomeController.goLogin);
+//    router.post('/login.ejs', HomeController.login);
+//    router.get('/myblog.ejs', HomeController.goMyblog);
+
     //router.get('/changeInformation', HomeController.changeInformation());
     return router;
 };

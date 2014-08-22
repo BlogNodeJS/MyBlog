@@ -1,6 +1,6 @@
 var express = require('express');
 var router = express.Router();
-var homeController = require('../controllers/HomeController');
+var loginController = require('../controllers/LoginController');
 
-router = homeController(router);
+router = loginController(router);
 module.exports = router;

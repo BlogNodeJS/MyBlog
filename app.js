@@ -4,10 +4,14 @@ var favicon = require('static-favicon');
 var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
+var mongoose = require('mongoose');
+mongoose.connect('mongodb://localhost/MyBlog');
 //routes
 var routes = require('./routes/index');
 var login = require('./routes/login');
 var my_blog = require('./routes/my_blog');
+
+
 //views:
 //var loginViews = require('./views/index.ejs');
 //models:
@@ -27,16 +31,14 @@ app.use(bodyParser.urlencoded());
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 //routes:
-app.use('/', routes);
+app.use('/', my_blog);
+app.use('/postDetail', my_blog);
 app.use('/login', login);
-app.use('/myblog', my_blog);
+
+//app.use('/myblog', my_blog);
 //views:
 //app.use('/', loginViews);
-/*//models:
-app.use('/', usersSchema);
-app.use('/', postsSchema);
-app.use('/', categorysSchema);
-app.use('/', tagsSchema);*/
+
 /// catch 404 and forward to error handler
 app.use(function(req, res, next) {
     var err = new Error('Not Found');
