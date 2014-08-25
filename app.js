@@ -11,15 +11,6 @@ var routes = require('./routes/index');
 var login = require('./routes/login');
 var my_blog = require('./routes/my_blog');
 
-
-//views:
-//var loginViews = require('./views/index.ejs');
-//models:
-/*var usersSchema = require('./models/UsersSchema');
-var postsSchema = require('./models/PostsSchema');
-var categorysSchema = require('./models/CategorysSchema');
-var tagsSchema = require('./models/TagsSchema');*/
-
 var app = express();
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
@@ -33,9 +24,10 @@ app.use(express.static(path.join(__dirname, 'public')));
 //routes:
 app.use('/', my_blog);
 app.use('/postDetail', my_blog);
+app.use('/postByCategoryname', my_blog);
 app.use('/login', login);
+app.use('/login/login', login);
 
-//app.use('/myblog', my_blog);
 //views:
 //app.use('/', loginViews);
 

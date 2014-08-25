@@ -9,18 +9,14 @@ var loginController = {
     },
 
     login: function (req, res ) {
-        var _username = req.param.username;
-        var _password = req.param.password;
+        var _username = req.param('txtUsername');
+        var _password = req.param('txtPassword');
 
-        userSchema.users.findOne({username:'kun',password:'123456'}, function(err, result){
+        userSchema.users.findOne({username:_username,password:_password}, function(err, result){
             if(err == null) {
-                if(result.length > 0){
+                if(result != null){
                     //success
-                    alert('login success');
                     res.render('myblog', {username:_username});
-                }else{
-                    err = 1;
-                    res.render('login', {error: err});
                 }
             }
         })

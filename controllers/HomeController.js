@@ -1,29 +1,34 @@
 
 var postsSchema = require('../models/PostsSchema');
+var categorysSchema = require('../models/CategorysSchema');
+var tagsSchema = require('../models/TagsSchema');
+var usersSchema = require('../models/UsersSchema');
 
 var homeController = {
-    index: function (req, res) {
-        res.render('index', { title: 'Hù ha ha Kun' });
-    },
 
+    findAll: function (req, res ) {
+        usersSchema.users.findOne( function (errU, user) {
+            if(user != null) {
+                categorysSchema.categorys.find( function (errC, arrCategory) {
+                    if(arrCategory && arrCategory.length > 0) {
+                        tagsSchema.tags.find( function(errT, arrTag) {
+                            if(arrTag && arrTag.length > 0) {
+                                postsSchema.posts.find().sort({date: -1}).exec( function(errP, arrPost){
+                                    if(arrPost && arrPost.length > 0) {
+                                        postsSchema.posts.find().sort({date:-1}).limit(5).exec(function(err, arrNewPost){
+                                            res.render('home', {user: user, arrCategory: arrCategory, arrTag: arrTag, arrPost: arrPost, arrNewPost: arrNewPost});
+                                        });
 
-    goLogin: function (req, res) {
-
-        res.render('login', { title: 'Login to your account...'});
-    },
-
-    findAllPost: function (req, res) {
-        postsSchema.posts.find( function(err, arrPost){
-            if(err == null) {
-                if(arrPost && arrPost.length > 0) {
-                    res.render('home', {arrPost: arrPost});
-                }
+                                    }
+                                });
+                            }
+                        });
+                    }
+                });
             }
+
         });
-    },
-    home:function(req,res){
-        res.render('home');
-        console.log('kkkkkk');
+
     },
 
     findPostById: function (req, res) {
@@ -31,71 +36,27 @@ var homeController = {
         postsSchema.posts.find({_id:id }, function(err, p){
             if(err == null) {
                 if(p && p.length > 0) {
-                    res.render('myblog', {arrPost: p});
+                    res.render('index', {arrPost: p});
                 }
             }
         });
+    },
+
+    findPostByCategoryname: function (req, res) {
+        var _categoryName = req.param('name');
+        categorysSchema.categorys.find({category: _categoryName}, function(err, arrPost){
+            if(arrPost && arrPost.length > 0){
+                res.render('home', {arrPost: arrPost});
+            }
+        });
     }
-//    home:function(req,res){
-//        res.render('home');
-//        console.log('kkkkkk');
-//    }
 
-
-//    goMyblog: function (req, res) {
-//        var username = 'Sẽ thay vô sau';
-//        res.render('myblog', { title: '' + username + ' - My Blog', username: username})
-//    },
-    /*
-     changeInformation: function (req, res) {
-     var fullname = req.getParameter("txtFullname");
-     var phone = req.getParameter("txtPhone");
-     var email = req.getParameter("txtEmal");
-     var avatar = req.getParameter("txtAvatar");
-     //code update infomation
-     },
-
-     changePassword: function (req, res) {
-     var oldPassword = req.getParameter("txtOldPassword");
-     var newPassword = req.getParameter("txtNewPassword");
-     var rePassword = req.getParameter("txtRePassword");
-     if (oldPassword == "pass cũ từ database" && newPassword === rePassword) {
-     //code update password
-     }
-     },
-
-     insertPost: function (req, res) {
-     var post = mongoose.model('Posts', postsSchema);
-     var p = new post;
-
-     p.title = "";
-     p.content = "";
-     p.date = new Date();
-     p.category = "";
-     p.tag = {
-     tagsName: "1",
-     tagsName: "2"
-     };
-     p.save(function (err, doc) {
-     if (err) {
-     res.render("posterror", {"error": "Kiểm tra lại."})
-     } else {
-     res.render("mybog");
-     }
-     });
-     }*/
 };
 
 module.exports = function (router) {
-    router.get('/', homeController.findAllPost);
+    router.get('/', homeController.findAll);
     router.get('/postDetail', homeController.findPostById);
-    router.get('/home.ejs', homeController.home);
-//    router.get('/home.ejs',homeController.home());
-//    router.get('/', HomeController.index);
-//    router.get('/login.ejs', HomeController.goLogin);
-//    router.post('/login.ejs', HomeController.login);
-//    router.get('/myblog.ejs', HomeController.goMyblog);
+    router.get('/postByCategoryname', homeController.findPostByCategoryname);
 
-    //router.get('/changeInformation', HomeController.changeInformation());
     return router;
 };

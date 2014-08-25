@@ -32,15 +32,12 @@
     <li>
         <p style="padding-left:0;">CATAGORY<i class="icon-caret-down"></i></p>
         <ul>
+            <% arrCategory.forEach(function(c){ %>
             <li>
-                <a href="#">Teen tự kỉ</a>
+                <a href="#"><%= c.categoryName %></a>
             </li>
-            <li>
-                <a href="#">Tự sướng quá đà</a>
-            </li>
-            <li>
-                <a href="#">Teen Hoang tưởng</a>
-            </li>
+
+            <% });%>
         </ul>
     </li>
 </ul>
