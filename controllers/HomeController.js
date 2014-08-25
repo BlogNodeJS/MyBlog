@@ -6,6 +6,7 @@ var homeController = {
         res.render('index', { title: 'Hù ha ha Kun' });
     },
 
+
     goLogin: function (req, res) {
 
         res.render('login', { title: 'Login to your account...'});
@@ -20,6 +21,10 @@ var homeController = {
             }
         });
     },
+    home:function(req,res){
+        res.render('home');
+        console.log('kkkkkk');
+    },
 
     findPostById: function (req, res) {
         var id = parseInt(req.param('id'));
@@ -31,6 +36,10 @@ var homeController = {
             }
         });
     }
+//    home:function(req,res){
+//        res.render('home');
+//        console.log('kkkkkk');
+//    }
 
 
 //    goMyblog: function (req, res) {
@@ -80,6 +89,8 @@ var homeController = {
 module.exports = function (router) {
     router.get('/', homeController.findAllPost);
     router.get('/postDetail', homeController.findPostById);
+    router.get('/home.ejs', homeController.home);
+//    router.get('/home.ejs',homeController.home());
 //    router.get('/', HomeController.index);
 //    router.get('/login.ejs', HomeController.goLogin);
 //    router.post('/login.ejs', HomeController.login);

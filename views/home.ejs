@@ -2,74 +2,194 @@
 <html lang="en">
 <head>
     <% include ../views/partials/head %>
-    <!--<head data-gwd-animation-mode="quickMode">-->
-    <!--<meta name="template" content="Banner 1.0.5">-->
-    <!--<meta http-equiv="Content-Type" content="text/html; charset=utf-8">-->
-    <!--<meta name="viewport" content="width=device-width, initial-scale=1.0">-->
-    <!--&lt;!&ndash;<link href="footer.css" rel="stylesheet">&ndash;&gt;-->
-    <!--<link href="http://maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet">-->
-    <!--<link rel="stylesheet" href="../css/bootstrap.min.css"/>-->
-    <!--<meta name="viewport" content="width=device-width, initial-scale=1.0">-->
-    <!--<link rel="stylesheet" href="../css/body.css">-->
-    <!--<style>-->
-    <!--body    { padding-top:50px; }-->
-    <!--</style>-->
-</head>
-<body class="container">
-<form method="post">
-    <header>
-        <% include ../views/partials/header %>
-    </header>
-    <hr>
-    <main>
-        <a href="/login">Login</a>
-        <div class="container">
-            <div id="blog" class="row">
-                <!--body left-->
-                <% include ../views/partials/bodyleft %>
-                <!--body right-->
+    <style>
+        .background {
+            background-image: url(http://hachick.com/image/bg.png);
+        }
 
-                <table cellspacing="0" style=";border-collapse:collapse;">
-                    <% arrPost.forEach( function(p){ %>
-                    <tr>
-                        <td>
-                            <div class="wrap_right_child">
-                                <div class="wrap_right_child_title">
-                                    <font color="#00afdb" size="6pt">
-                                        <span id="phContent_ddlArticle_lbStt_0"><%= p._id %></span>/
-                                    </font>
-                                    <a id="phContent_ddlArticle_hplTitle_0" href="/postDetail?id=<%= p._id %>"><%= p.title%></a>
-                                </div>
-                                <div class="wrap_right_child_other">
-                                    Đăng bởi <b>
-                                    <span id="phContent_ddlArticle_lbAuthor_0">..........</span></b>,
-                                    ngày <b>
-                                    <span id="phContent_ddlArticle_lbDateCreated_0"><%= p.date %></span></b>
-                                    - Lấy từ nguồn <b>
-                                    <span id="phContent_ddlArticle_lbSource_0">..........</span></b>
-                                    - <b>
-                                    <span id="phContent_ddlArticle_lbView_0">.....</span></b>
-                                    lượt xem
-                                </div>
-                                <div class="wrap_right_child_thumb">
-                                    <a id="phContent_ddlArticle_hplImage_0" href="/postDetail?id=<%= p._id %>"><img id="phContent_ddlArticle_imgThumb_0"
-                                                                                          src="<%= p.image %>"></a>
-                                </div>
-                                <div class="wrap_right_child_content">
-                                    <span id="phContent_ddlArticle_lbContent_0"><%= p.description %></span>
-                                </div>
-                            </div>
-                        </td>
-                    </tr>
-                    <% }); %>
-                </table>
+    </style>
+
+</head>
+<!--<body class="container">-->
+<body>
+<form>
+    <div class="background">
+        <div class="container">
+            <!--<div class="back-top affix" data-spy="affix" data-offset-top="500">-->
+            <!--<a href="#"><img src="http://b0.ttimg.vn/img/img_201302/icon_backTop.gif" alt="back to top"></a>-->
+            <!--</div>-->
+            <!--<a href="" id="back-to-top"><i class="icon-long-arrow-up"></i></a>-->
+            <a href="#" class="back-to-top"><i class="icon-long-arrow-up"></i></a>
+
+            <div>
+                <header>
+                    <% include ../views/partials/header %>
+                </header>
+                <main style="background-color: aliceblue ">
+
+                    <div id="blog" class="row">
+                        <!--body left-->
+                        <div class="col-md-3" style="
+                            background-image: url(http://hachick.com/image/bgRight.png);
+                            margin-left: 15px;
+                            margin-top: 0px;margin-right:0px;&nbsp;;
+                            height: 100%;">
+
+                            <% include ../views/partials/bodyleft %>
+                        </div>
+                        <!--body right-->
+                        <table cellspacing="0"
+                               style="border-collapse:collapse;margin-left: 10px; background-image: url(http://hachick.com/image/bgLeft.png);margin-top: 5px;margin-right: 5px;/* margin-left: 5px; */border-bottom-left-radius: 1px;border-left: aqua;">
+                            <tr>
+                                <td>
+                                    <div class="wrap_right_child">
+                                        <div>
+                                            <div class="wrap_right_child_title">
+                                                <font color="#00afdb" size="6pt">
+                                                    <span id="phContent_ddlArticle_lbStt_0">1</span>/
+                                                </font>
+                                                <a id="phContent_ddlArticle_hplTitle_0" href="#">Tháng tám, tạm biệt
+                                                    nhé.. </a>
+                                            </div>
+                                            <div class="wrap_right_child_other">
+                                                Đăng bởi <b>
+                                                <span id="phContent_ddlArticle_lbAuthor_0">Hi,I'm GOSU</span></b>,
+                                                ngày <b>
+                                                <span id="phContent_ddlArticle_lbDateCreated_0">20/08/2014</span></b>
+                                                - Lấy từ nguồn <b>
+                                                <span id="phContent_ddlArticle_lbSource_0">MyBlog.vn</span></b>
+                                                - <b>
+                                                <span id="phContent_ddlArticle_lbView_0">1M</span></b>
+                                                lượt xem
+                                            </div>
+                                            <div class="wrap_right_child_thumb">
+                                                <a id="phContent_ddlArticle_hplImage_0" href="#"><img
+                                                        id="phContent_ddlArticle_imgThumb_0"
+                                                        src="http://hachick.com/article_image/4409799b-c694-4519-ba18-83aecdef1eb0.png"></a>
+                                            </div>
+                                            <div class="wrap_right_child_content">
+                                                <span id="phContent_ddlArticle_lbContent_0">Tháng tám, tạm biệt nhé… những điều cũ sắp đi qua. Ngoái đầu nhìn lại, một chút tiếc nuối, một chút hững hờ, một chút chạnh lòng…rồi vội vàng bước nhanh. Một mùa Đông sắp tới…</span>
+                                            </div>
+                                            <div class="wrap_right_child_content">
+                                                <span>Tháng tám, tạm biệt nhé… những điều cũ sắp đi qua. Ngoái đầu nhìn lại, một chút tiếc nuối, một chút hững hờ, một chút chạnh lòng…rồi vội vàng bước nhanh. Một mùa Đông sắp tới…</span>
+                                            </div>
+                                            <div class="wrap_right_child_content">
+                                                <span>Tháng tám, tạm biệt nhé… những điều cũ sắp đi qua. Ngoái đầu nhìn lại, một chút tiếc nuối, một chút hững hờ, một chút chạnh lòng…rồi vội vàng bước nhanh. Một mùa Đông sắp tới…</span>
+                                            </div>
+                                            <div class="wrap_right_child_content">
+                                                <span>Tháng tám, tạm biệt nhé… những điều cũ sắp đi qua. Ngoái đầu nhìn lại, một chút tiếc nuối, một chút hững hờ, một chút chạnh lòng…rồi vội vàng bước nhanh. Một mùa Đông sắp tới…</span>
+                                            </div>
+
+
+                                        </div>
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <div class="wrap_right_child">
+                                        <div>
+                                            <div class="wrap_right_child_title">
+                                                <font color="#00afdb" size="6pt">
+                                                    <span id="phContent_ddlArticle_lbStt_0">2</span>/
+                                                </font>
+                                                <a id="phContent_ddlArticle_hplTitle_0" href="#">Tháng tám, tạm biệt
+                                                    nhé.. </a>
+                                            </div>
+                                            <div class="wrap_right_child_other">
+                                                Đăng bởi <b>
+                                                <span id="phContent_ddlArticle_lbAuthor_0">Hi,I'm GOSU</span></b>,
+                                                ngày <b>
+                                                <span id="phContent_ddlArticle_lbDateCreated_0">20/08/2014</span></b>
+                                                - Lấy từ nguồn <b>
+                                                <span id="phContent_ddlArticle_lbSource_0">MyBlog.vn</span></b>
+                                                - <b>
+                                                <span id="phContent_ddlArticle_lbView_0">1M</span></b>
+                                                lượt xem
+                                            </div>
+                                            <div class="wrap_right_child_thumb">
+                                                <a id="phContent_ddlArticle_hplImage_0" href="#"><img
+                                                        id="phContent_ddlArticle_imgThumb_0"
+                                                        src="http://hachick.com/article_image/45d494f7-c079-46aa-aa2f-8220657c8f96.jpg"></a>
+                                            </div>
+                                            <div class="wrap_right_child_content">
+                                                <span id="phContent_ddlArticle_lbContent_0">Tháng tám, tạm biệt nhé… những điều cũ sắp đi qua. Ngoái đầu nhìn lại, một chút tiếc nuối, một chút hững hờ, một chút chạnh lòng…rồi vội vàng bước nhanh. Một mùa Đông sắp tới…</span>
+                                            </div>
+                                            <div class="wrap_right_child_content">
+                                                <span>Tháng tám, tạm biệt nhé… những điều cũ sắp đi qua. Ngoái đầu nhìn lại, một chút tiếc nuối, một chút hững hờ, một chút chạnh lòng…rồi vội vàng bước nhanh. Một mùa Đông sắp tới…</span>
+                                            </div>
+                                            <div class="wrap_right_child_content">
+                                                <span>Tháng tám, tạm biệt nhé… những điều cũ sắp đi qua. Ngoái đầu nhìn lại, một chút tiếc nuối, một chút hững hờ, một chút chạnh lòng…rồi vội vàng bước nhanh. Một mùa Đông sắp tới…</span>
+                                            </div>
+                                            <div class="wrap_right_child_content">
+                                                <span>Tháng tám, tạm biệt nhé… những điều cũ sắp đi qua. Ngoái đầu nhìn lại, một chút tiếc nuối, một chút hững hờ, một chút chạnh lòng…rồi vội vàng bước nhanh. Một mùa Đông sắp tới…</span>
+                                            </div>
+
+
+                                        </div>
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>
+                                    <div class="wrap_right_child">
+                                        <div>
+                                            <div class="wrap_right_child_title">
+                                                <font color="#00afdb" size="6pt">
+                                                    <span id="phContent_ddlArticle_lbStt_0">3</span>/
+                                                </font>
+                                                <a id="phContent_ddlArticle_hplTitle_0" href="#">Tháng tám, tạm biệt
+                                                    nhé.. </a>
+                                            </div>
+                                            <div class="wrap_right_child_other">
+                                                Đăng bởi <b>
+                                                <span id="phContent_ddlArticle_lbAuthor_0">Hi,I'm GOSU</span></b>,
+                                                ngày <b>
+                                                <span id="phContent_ddlArticle_lbDateCreated_0">20/08/2014</span></b>
+                                                - Lấy từ nguồn <b>
+                                                <span id="phContent_ddlArticle_lbSource_0">MyBlog.vn</span></b>
+                                                - <b>
+                                                <span id="phContent_ddlArticle_lbView_0">1M</span></b>
+                                                lượt xem
+                                            </div>
+                                            <div class="wrap_right_child_thumb">
+                                                <a id="phContent_ddlArticle_hplImage_0" href="#"><img
+                                                        id="phContent_ddlArticle_imgThumb_0"
+                                                        src="http://hachick.com/article_image/860f4a63-eb89-435c-8ff1-1519475981a2.jpg"></a>
+                                            </div>
+                                            <div class="wrap_right_child_content">
+                                                <span id="phContent_ddlArticle_lbContent_0">Tháng tám, tạm biệt nhé… những điều cũ sắp đi qua. Ngoái đầu nhìn lại, một chút tiếc nuối, một chút hững hờ, một chút chạnh lòng…rồi vội vàng bước nhanh. Một mùa Đông sắp tới…</span>
+                                            </div>
+                                            <div class="wrap_right_child_content">
+                                                <span>Tháng tám, tạm biệt nhé… những điều cũ sắp đi qua. Ngoái đầu nhìn lại, một chút tiếc nuối, một chút hững hờ, một chút chạnh lòng…rồi vội vàng bước nhanh. Một mùa Đông sắp tới…</span>
+                                            </div>
+                                            <div class="wrap_right_child_content">
+                                                <span>Tháng tám, tạm biệt nhé… những điều cũ sắp đi qua. Ngoái đầu nhìn lại, một chút tiếc nuối, một chút hững hờ, một chút chạnh lòng…rồi vội vàng bước nhanh. Một mùa Đông sắp tới…</span>
+                                            </div>
+                                            <div class="wrap_right_child_content">
+                                                <span>Tháng tám, tạm biệt nhé… những điều cũ sắp đi qua. Ngoái đầu nhìn lại, một chút tiếc nuối, một chút hững hờ, một chút chạnh lòng…rồi vội vàng bước nhanh. Một mùa Đông sắp tới…</span>
+                                            </div>
+
+
+                                        </div>
+                                    </div>
+                                </td>
+                            </tr>
+
+                        </table>
+                        <footer>
+                            <% include ../views/partials/footer %>
+                        </footer>
+
+                    </div>
+
+
+                </main>
             </div>
         </div>
-    </main>
 
-    <footer>
-        <% include ../views/partials/footer %>
-    </footer>
+    </div>
+
 </form>
 </body>
 </html>
