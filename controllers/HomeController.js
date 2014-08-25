@@ -49,14 +49,40 @@ var homeController = {
                 res.render('home', {arrPost: arrPost});
             }
         });
+    },
+    goCategory:function(req,res)
+    {
+        res.render('categoryDetails');
+    },
+    goPostView:function(req,res){
+        res.render('postDetails');
+    },
+    goProfile:function(req,res){
+        res.render('profile');
+    },
+    goTagDetails:function(req,res){
+        res.render('tagDetails');
+    },
+    goManagerment:function(req,res){
+        res.render('managerment');
+    },
+    home:function(req,res){
+        res.render('home');
+        console.log('kkkkkk');
     }
 
 };
 
 module.exports = function (router) {
     router.get('/', homeController.findAll);
+    router.get('/home.ejs', homeController.home);
     router.get('/postDetail', homeController.findPostById);
     router.get('/postByCategoryname', homeController.findPostByCategoryname);
+    router.get('/categoryDetails.ejs',homeController.goCategory);
+    router.get('/postDetails.ejs',homeController.goPostView);
+    router.get('/profile.ejs',homeController.goProfile);
+    router.get('/tagDetails.ejs',homeController.goTagDetails);
+    router.get('/managerment.ejs',homeController.goManagerment);
 
     return router;
 };
