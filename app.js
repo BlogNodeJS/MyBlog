@@ -8,6 +8,8 @@ var bodyParser = require('body-parser');
 var routes = require('./routes/index');
 var login = require('./routes/login');
 var my_blog = require('./routes/my_blog');
+var test =  require('./routes/test');
+var editor = require('./routes/testEditor');
 //views:
 //var loginViews = require('./views/index.ejs');
 //models:
@@ -29,7 +31,9 @@ app.use(express.static(path.join(__dirname, 'public')));
 //routes:
 app.use('/', routes);
 app.use('/login', login);
-app.use('/myblog', my_blog);
+app.use('/myblog', my_blog)
+app.use('/test', test);
+app.use('/textEditor', editor);
 //views:
 //app.use('/', loginViews);
 /*//models:

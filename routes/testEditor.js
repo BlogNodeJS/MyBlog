@@ -1,13 +1,6 @@
 var express = require('express');
 var router = express.Router();
+var homeController = require('../controllers/HomeController');
 
-/* GET home page. */
-router.get('/testEditor', function(req, res) {
-    res.render('testEditor', { title: 'Express' });
-});
-
+router = homeController(router);
 module.exports = router;
-
-/**
- * Created by Beto on 8/18/2014.
- */
