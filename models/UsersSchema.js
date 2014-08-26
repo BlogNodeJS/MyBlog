@@ -8,5 +8,9 @@ var usersSchema = new Schema({
     fullname: String,
     phone: String,
     email: String,
-    avatar: String
+    avatar: String,
+    aboutMe: String
 });
+
+var users = mongoose.model('users', usersSchema);
+module.exports = {users: users};

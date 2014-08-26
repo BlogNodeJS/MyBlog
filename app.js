@@ -4,10 +4,13 @@ var favicon = require('static-favicon');
 var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
+var mongoose = require('mongoose');
+mongoose.connect('mongodb://localhost/MyBlog');
 //routes
 var routes = require('./routes/index');
 var login = require('./routes/login');
 var my_blog = require('./routes/my_blog');
+<<<<<<< HEAD
 var test =  require('./routes/test');
 var editor = require('./routes/testEditor');
 //views:
@@ -17,6 +20,8 @@ var editor = require('./routes/testEditor');
 var postsSchema = require('./models/PostsSchema');
 var categorysSchema = require('./models/CategorysSchema');
 var tagsSchema = require('./models/TagsSchema');*/
+=======
+>>>>>>> origin/master
 
 var app = express();
 // view engine setup
@@ -29,18 +34,21 @@ app.use(bodyParser.urlencoded());
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 //routes:
-app.use('/', routes);
+app.use('/', my_blog);
+app.use('/postDetail', my_blog);
+app.use('/postByCategoryname', my_blog);
 app.use('/login', login);
+<<<<<<< HEAD
 app.use('/myblog', my_blog)
 app.use('/test', test);
 app.use('/textEditor', editor);
+=======
+app.use('/login/login', login);
+
+>>>>>>> origin/master
 //views:
 //app.use('/', loginViews);
-/*//models:
-app.use('/', usersSchema);
-app.use('/', postsSchema);
-app.use('/', categorysSchema);
-app.use('/', tagsSchema);*/
+
 /// catch 404 and forward to error handler
 app.use(function(req, res, next) {
     var err = new Error('Not Found');

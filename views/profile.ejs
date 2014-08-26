@@ -4,6 +4,7 @@
     <% include ../views/partials/head %>
     <style>
         .background {
+            /*background-image: url(http://hachick.com/image/bg.png);*/
             background-image: url(http://hachick.com/image/bg.png);
         }
 
@@ -34,6 +35,8 @@
                             margin-left: 15px;
                             margin-top: 0px;margin-right:0px;&nbsp;;
                             height: 100%;">
+
+                            <!--<% include ../views/partials/bodyleft %>-->
 
                             <ul>
                                 <li>
@@ -83,67 +86,23 @@
                                 <li class="sl-menu ext-menu item-1230">
                                     <p style="padding-left:0;">TAG</p>
                                     <% arrTag.forEach( function(t){ %>
-                                        <a href="#"><%= t.tagsName %></a>
+                                    <a href="#"><%= t.tagsName %></a>
                                     <% });%>
                                 </li>
 
                             </ul>
                         </div>
-
-                        <!--body right-->
-                        <table cellspacing="0"
-                               style="border-collapse:collapse;margin-left: 10px; background-image: url(http://hachick.com/image/bgLeft.png);margin-top: 5px;margin-right: 5px;/* margin-left: 5px; */border-bottom-left-radius: 1px;border-left: aqua;">
-                            <% arrPost.forEach(function(p){ %>
-                            <tr>
-                                <td>
-                                    <div class="wrap_right_child">
-                                        <div>
-                                            <div class="wrap_right_child_title">
-                                                <font color="#00afdb" size="6pt">
-                                                    <span id="phContent_ddlArticle_lbStt_0"><%= p._id %></span>/
-                                                </font>
-                                                <a id="phContent_ddlArticle_hplTitle_0" href="/postDetail?id=<%=p._id %>"><%= p.title %></a>
-                                            </div>
-                                            <div class="wrap_right_child_other">
-                                                Đăng bởi <b>
-                                                <span id="phContent_ddlArticle_lbAuthor_0">Hi,I'm GOSU</span></b>,
-                                                ngày <b>
-                                                <span id="phContent_ddlArticle_lbDateCreated_0"><%= p.date %></span></b>
-                                                - Lấy từ nguồn <b>
-                                                <span id="phContent_ddlArticle_lbSource_0">MyBlog.vn</span></b>
-                                                - <b>
-                                                <span id="phContent_ddlArticle_lbView_0">1M</span></b>
-                                                lượt xem
-                                            </div>
-                                            <div class="wrap_right_child_thumb">
-                                                <a id="phContent_ddlArticle_hplImage_0" href="/postDetail?id=<%=p._id %>"><img
-                                                        id="phContent_ddlArticle_imgThumb_0"
-                                                        src="<%= p.image %>"></a>
-                                            </div>
-                                            <div class="wrap_right_child_content">
-                                                <%= p.description %>
-                                            </div>
-
-                                        </div>
-                                    </div>
-                                </td>
-                            </tr>
-
-                            <% });%>
-                        </table>
-                        <footer>
-                            <% include ../views/partials/footer %>
-                        </footer>
+                        <div>
+                            body
+                        </div>
 
                     </div>
-
-
+                    <footer>
+                        <% include ../views/partials/footer %>
+                    </footer>
                 </main>
             </div>
         </div>
-
     </div>
-
 </form>
 </body>
-</html>

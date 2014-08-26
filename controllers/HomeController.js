@@ -1,13 +1,10 @@
-var express = require('express');
-var router = express.Router();
-var mongoose = require('mongoose'),
-    Schema = mongoose.Schema;
-var app = express;
-var usersSchema = require('../models/UsersSchema');
+
 var postsSchema = require('../models/PostsSchema');
 var categorysSchema = require('../models/CategorysSchema');
 var tagsSchema = require('../models/TagsSchema');
+var usersSchema = require('../models/UsersSchema');
 
+<<<<<<< HEAD
 var HomeController = {
     index: function (req, res) {
         var t = '<p><span style="font-size: x-large;"><strong>aaaaaaaaaaaa</strong></span></p>' +
@@ -19,14 +16,36 @@ var HomeController = {
 
         res.render('test', { text: 'Hihi test.ejs'});
     },
+=======
+var homeController = {
 
-    goLogin: function (req, res) {
+    findAll: function (req, res ) {
+        usersSchema.users.findOne( function (errU, user) {
+            if(user != null) {
+                categorysSchema.categorys.find( function (errC, arrCategory) {
+                    if(arrCategory && arrCategory.length > 0) {
+                        tagsSchema.tags.find( function(errT, arrTag) {
+                            if(arrTag && arrTag.length > 0) {
+                                postsSchema.posts.find().sort({date: -1}).exec( function(errP, arrPost){
+                                    if(arrPost && arrPost.length > 0) {
+                                        postsSchema.posts.find().sort({date:-1}).limit(5).exec(function(err, arrNewPost){
+                                            res.render('home', {user: user, arrCategory: arrCategory, arrTag: arrTag, arrPost: arrPost, arrNewPost: arrNewPost});
+                                        });
+>>>>>>> origin/master
 
-        res.render('login', { title: 'Login to your account...'});
+                                    }
+                                });
+                            }
+                        });
+                    }
+                });
+            }
+
+        });
+
     },
 
-    login: function (req, res) {
-
+<<<<<<< HEAD
         var x = req.param('txtUsername');
         res.render('myblog', {title: 'Đã login...', text: x});
         /*var username = req.getParameter("txtUsername");
@@ -40,14 +59,46 @@ var HomeController = {
          req.render('login', {error: "Username hoặc password không đúng."});
          }
          //})*/
+=======
+    findPostById: function (req, res) {
+        var id = parseInt(req.param('id'));
+        postsSchema.posts.find({_id:id }, function(err, p){
+            if(err == null) {
+                if(p && p.length > 0) {
+                    res.render('index', {arrPost: p});
+                }
+            }
+        });
+>>>>>>> origin/master
     },
 
-    goMyblog: function (req, res) {
-        var username = 'Sẽ thay vô sau';
-        res.render('myblog', { title: '' + username + ' - My Blog', username: username})
+    findPostByCategoryname: function (req, res) {
+        var _categoryName = req.param('name');
+        categorysSchema.categorys.find({category: _categoryName}, function(err, arrPost){
+            if(arrPost && arrPost.length > 0){
+                res.render('home', {arrPost: arrPost});
+            }
+        });
+    },
+    goCategory:function(req,res)
+    {
+        res.render('categoryDetails');
+    },
+    goPostView:function(req,res){
+        res.render('postDetails');
+    },
+    goProfile:function(req,res){
+        res.render('profile');
+    },
+    goTagDetails:function(req,res){
+        res.render('tagDetails');
+    },
+    goManagerment:function(req,res){
+        res.render('managerment');
     },
     home: function (req, res) {
         res.render('home');
+<<<<<<< HEAD
     },
 
     test: function (req, res) {
@@ -124,5 +175,23 @@ module.exports = function (router) {
     //router.get('/changeInformation', HomeController.changeInformation());
     router.get('/textEditor.ejs', HomeController.textEditor);
     router.post('/textEditor', HomeController.update);
+=======
+        console.log('kkkkkk');
+    }
+
+};
+
+module.exports = function (router) {
+    router.get('/', homeController.findAll);
+    router.get('/home.ejs', homeController.home);
+    router.get('/postDetail', homeController.findPostById);
+    router.get('/postByCategoryname', homeController.findPostByCategoryname);
+    router.get('/categoryDetails.ejs',homeController.goCategory);
+    router.get('/postDetails.ejs',homeController.goPostView);
+    router.get('/profile.ejs',homeController.goProfile);
+    router.get('/tagDetails.ejs',homeController.goTagDetails);
+    router.get('/managerment.ejs',homeController.goManagerment);
+
+>>>>>>> origin/master
     return router;
 };
