@@ -16,6 +16,7 @@ var loginController = {
             if(err == null) {
                 if(result != null){
                     //success
+                    req.session.username = _username;
                     res.render('myblog', {username:_username});
                 }else {
                     errors = 'Login fail';

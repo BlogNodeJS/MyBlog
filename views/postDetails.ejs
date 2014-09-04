@@ -40,10 +40,11 @@
 
                         </div>
                         <div>
-                            <% arrPost.forEach( function(details){ %>
+                            <% arrPost.forEach( function(p){ %>
                             <ul>
+                                <h2><%= p.title %></h2>
                                 <li>
-                                    <p><%=details.content %></p>
+                                    <div><%- p.content %></div>
                                 </li>
 
                             </ul>

@@ -47,65 +47,8 @@
                             <br>
                         </div>
 
-                        <ul>
-                            <li>
-                                <div class="content" style="margin-top: 20px;">
-                                    <div class="img">
-                                        <img src="http://img2.tamtay.vn/files/blogdata/2014/8/19/12/14467785/a6aae7e104c8165c2b322b0799631444_thumb_210x179.jpg"
-                                             alt="Profile" style="width: 200px;height:200px;">
-                                    </div>
-                                    <div class="text">
-                                        <h4><a href="#">Hi,I'm GOSU</a></h4>
+                        <% include partials/bodyleft.ejs %>
 
-                                        <h5>"Khi yêu không kể khoảng cách , có thể làm mọi thứ cho người mình yêu
-                                            thương ."</h5>
-                                    </div>
-                                </div>
-                            </li>
-
-                        </ul>
-                        <hr>
-                        <ul>
-                            <li>
-                                <p style="padding-left:0;">CATAGORY<i class="icon-caret-down"></i></p>
-                                <ul>
-                                    <li>
-                                        <a href="#">vvvv</a>
-                                    </li>
-
-                                </ul>
-                            </li>
-                        </ul>
-                        <hr>
-                        <ul>
-                            <li class="sl-menu ext-menu">
-                                <p style="padding-left:0;">BÀI VIẾT MỚI<i class="icon-caret-down"></i></p>
-                                <ul>
-                                    <li>
-                                        <a href="#">Ăn chơi</a>
-                                    </li>
-                                    <li>
-                                        <a href="#">Giải trí</a>
-                                    </li>
-                                    <li>
-                                        <a href="#">Horoscope</a>
-                                    </li>
-                                    <li>
-                                        <a href="#">Hà Nội</a>
-                                    </li>
-                                    <li>
-                                        <a href="#">Sài Gòn</a>
-                                    </li>
-                                </ul>
-                            </li>
-                        </ul>
-                        <hr>
-                        <ul>
-                            <li class="sl-menu ext-menu item-1230">
-                                <p style="padding-left:0;">TAG</p>
-                            </li>
-
-                        </ul>
                     </div>
 
                     <!--body right-->
@@ -116,14 +59,15 @@
 
 
 
+                                <% arrPost.forEach(function (p){ %>
                                 <article id="post-338" class="post-338 post type-post status-publish format-video hentry category-am-nhac-nghe-thuat clearfix box full-width" role="article">
 
                                     <header>
-                                        <h2 class="post-title"><a style="text-decoration: none;color: #E93071;" href="http://blog360.vn/saint-young-men-khi-chua-va-phat-cung-tai-sinh-coi-tran/">Saint Young Men, khi Chúa và Phật cùng tái sinh cõi trần</a></h2>
+                                        <h2 class="post-title"><a style="text-decoration: none;color: #E93071;" href="/postByName?name=<%= p.title%>"><%= p.title %></a></h2>
                                     </header>
 
                                     <div class="entry-content">
-                                        <p>Cùng đến với bộ truyện tranh hài hước Saint Young Men, một trong những bộ truyện tranh gây tranh cãi tại Nhật Bạn đã bao giờ thắc mắc xem liệu Phật Tổ và Chúa có thật hay không chưa? Và họ sẽ thế nào nếu cùng đi vi hành dưới hạ giới và sống giữa […]</p>
+                                        <p><%= p.description %></p>
                                     </div>
 
                                     <div class="meta clearfix">
@@ -133,6 +77,7 @@
 			<a href="#" title="Comment on Saint Young Men, khi Chúa và Phật cùng tái sinh cõi trần"><fb:comments-count xmlns="http://ogp.me/ns/fb#" href="http://blog360.vn/saint-young-men-khi-chua-va-phat-cung-tai-sinh-coi-tran/" fb-xfbml-state="rendered" class=" fb_comments_count_zero"><span class="fb_comments_count">0</span></fb:comments-count> Comments</a>	</span>
                                     </div>
                                 </article>
+                                <%});%>
 
 
 

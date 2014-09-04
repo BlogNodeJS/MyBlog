@@ -3,6 +3,7 @@ var path = require('path');
 var favicon = require('static-favicon');
 var logger = require('morgan');
 var cookieParser = require('cookie-parser');
+var session = require('express-session');
 var bodyParser = require('body-parser');
 var mongoose = require('mongoose');
 mongoose.connect('mongodb://localhost/MyBlog');
@@ -10,6 +11,7 @@ mongoose.connect('mongodb://localhost/MyBlog');
 var routes = require('./routes/index');
 var login = require('./routes/login');
 var my_blog = require('./routes/my_blog');
+
 
 var app = express();
 // view engine setup
@@ -20,6 +22,7 @@ app.use(logger('dev'));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded());
 app.use(cookieParser());
+app.use(session({secret: '123456',resave: true, saveUninitialized: true}));
 app.use(express.static(path.join(__dirname, 'public')));
 //routes:
 app.use('/', my_blog);
