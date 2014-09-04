@@ -10,18 +10,6 @@ mongoose.connect('mongodb://localhost/MyBlog');
 var routes = require('./routes/index');
 var login = require('./routes/login');
 var my_blog = require('./routes/my_blog');
-<<<<<<< HEAD
-var test =  require('./routes/test');
-var editor = require('./routes/testEditor');
-//views:
-//var loginViews = require('./views/index.ejs');
-//models:
-/*var usersSchema = require('./models/UsersSchema');
-var postsSchema = require('./models/PostsSchema');
-var categorysSchema = require('./models/CategorysSchema');
-var tagsSchema = require('./models/TagsSchema');*/
-=======
->>>>>>> origin/master
 
 var app = express();
 // view engine setup
@@ -36,16 +24,13 @@ app.use(express.static(path.join(__dirname, 'public')));
 //routes:
 app.use('/', my_blog);
 app.use('/postDetail', my_blog);
+app.use('/postByName', my_blog);
+app.use('/searchPost', my_blog);
+app.use('/postByTags', my_blog)
 app.use('/postByCategoryname', my_blog);
 app.use('/login', login);
-<<<<<<< HEAD
-app.use('/myblog', my_blog)
-app.use('/test', test);
-app.use('/textEditor', editor);
-=======
 app.use('/login/login', login);
 
->>>>>>> origin/master
 //views:
 //app.use('/', loginViews);
 

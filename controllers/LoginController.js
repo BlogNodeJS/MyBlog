@@ -2,7 +2,7 @@
  * Created by Hihi on 22/08/2014.
  */
 var userSchema = require('../models/UsersSchema');
-
+var errors = null;
 var loginController = {
     index: function(req, res) {
         res.render('login');
@@ -17,9 +17,13 @@ var loginController = {
                 if(result != null){
                     //success
                     res.render('myblog', {username:_username});
+                }else {
+                    errors = 'Login fail';
+                    res.render('login', {errors: errors});
+
                 }
             }
-        })
+        });
     }
 }
 

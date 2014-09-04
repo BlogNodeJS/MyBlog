@@ -1,0 +1,354 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <% include ../views/partials/head %>
+    <style>
+        .background {
+            background-image: url(http://hachick.com/image/bg.png);
+        }
+
+    </style>
+    <meta charset="utf-8">
+    <meta name='ckeditor-sample-required-plugins' content='sourcearea'>
+    <script src='/js/ckeditor.js'></script>
+    <script src='/js/sample.js'></script>
+    <link href='css/sample.css' rel='stylesheet'>
+    <script src="/js/post.js"></script>
+    <script>(function () {
+        with (this[2]) {
+            with (this[1]) {
+                with (this[0]) {
+                    return function (event) {
+                        blog_entry.limitTextLength(this, 2000, 'introLength', '[n]/2000 ký tự')
+                    };
+                }
+            }
+        }
+    })</script>
+
+</head>
+<!--<body class="container">-->
+<body>
+<form >
+<!--<div class="background">-->
+<div class="container">
+<a href="#" class="back-to-top"><i class="icon-long-arrow-up"></i></a>
+
+<div>
+<header>
+    <% include ../views/partials/header %>
+</header>
+<main style="background-image: url(http://hachick.com/image/bgRight.png)">
+
+<div id="blog" class="row">
+<!--body left-->
+
+<div class="col-md-3" style="
+                            background-image: url(http://hachick.com/image/bgRight.png);
+                            margin-left: 15px;
+                            margin-top: 0px;margin-right:0px;&nbsp;;
+                            height: 100%;">
+
+    <div class="btn-tool">
+        <br>
+        <a href="#" class="sl-menu-btn" style="width:auto;margin-left: 48px;">Blog của tôi</a>
+        <a href="#" class="sl-menu-btn" style="width:83px; ">Viết Blog</a>
+        <br>
+    </div>
+
+    <ul>
+        <li>
+            <div class="content" style="margin-top: 20px;">
+                <div class="img">
+                    <img src="http://img2.tamtay.vn/files/blogdata/2014/8/19/12/14467785/a6aae7e104c8165c2b322b0799631444_thumb_210x179.jpg"
+                         alt="Profile" style="width: 200px;height:200px;">
+                </div>
+                <div class="text">
+                    <h4><a href="#">Hi,I'm GOSU</a></h4>
+
+                    <h5>"Khi yêu không kể khoảng cách , có thể làm mọi thứ cho người mình yêu
+                        thương ."</h5>
+                </div>
+            </div>
+        </li>
+
+    </ul>
+    <hr>
+    <ul>
+        <li>
+            <p style="padding-left:0;">CATAGORY<i class="icon-caret-down"></i></p>
+            <ul>
+                <li>
+                    <a href="#">vvvv</a>
+                </li>
+
+            </ul>
+        </li>
+    </ul>
+    <hr>
+    <ul>
+        <li class="sl-menu ext-menu">
+            <p style="padding-left:0;">BÀI VIẾT MỚI<i class="icon-caret-down"></i></p>
+            <ul>
+                <li>
+                    <a href="#">Ăn chơi</a>
+                </li>
+                <li>
+                    <a href="#">Giải trí</a>
+                </li>
+                <li>
+                    <a href="#">Horoscope</a>
+                </li>
+                <li>
+                    <a href="#">Hà Nội</a>
+                </li>
+                <li>
+                    <a href="#">Sài Gòn</a>
+                </li>
+            </ul>
+        </li>
+    </ul>
+    <hr>
+    <ul>
+        <li class="sl-menu ext-menu item-1230">
+            <p style="padding-left:0;">TAG</p>
+        </li>
+
+    </ul>
+</div>
+
+<!--body right-->
+<div class="bd-right">
+<div style="margin-left: 10px;margin-right: 0px;">
+<br>
+<br>
+<label>
+    <strong>Tiêu đề</strong>
+    <input type="text" name="title" id="title" value="" class="entry-width-long" placeholder="Xin mời nhập tiêu đề">
+</label>
+<br>
+<label>
+    <strong>Category</strong>
+    <select class="entry-width-short" name="cid" id="cid">
+        <option value="0"> - Chọn danh mục</option>
+        <option value="1">...</option>
+    </select>
+</label>
+
+<label>
+    <strong style="float:left;">Trích dẫn
+        <small>(*)</small>
+    </strong>
+    <b class="note-user-01" style="float:right;" id="introLength">0/2000 ký tự</b>
+    <textarea name="intro" id="intro" class="" placeholder=""
+              onkeyup="blog_entry.limitTextLength(this, 2000, 'introLength', '[n]/2000 ký tự' )"
+              style="height: 90px;width: 808px;"></textarea>
+</label>
+<hr>
+<label>
+    <strong>Ảnh bìa</strong>
+    <input style="height: 40px;width: 404px;" type="file" name="entry_thumb" id="anhbia" value="" class="entry-width-long"
+           placeholder="Xin mời nhập tag">
+    <p style="line-height:16px;font-size:11px;color:#777;">Định dạng : jpg , png . Kích thước ~750px*250px</p>
+</label>
+<hr>
+<label style="width: 808px;">
+
+    <p>
+        <textarea cols="80" id="editor1" name="content" rows="10" style="width: 810px;">....</textarea>
+        <script>
+
+            CKEDITOR.replace('editor1', {
+                /*
+                 * Style sheet for the contents
+                 */
+                contentsCss: 'css/outputxhtml.css',
+
+                /*
+                 * Special allowed content rules for spans used by
+                 * font face, size, and color buttons.
+                 *
+                 * Note: all rules have been written separately so
+                 * it was possible to specify required classes.
+                 */
+                extraAllowedContent: 'span(!FontColor1);span(!FontColor2);span(!FontColor3);' +
+                        'span(!FontColor1BG);span(!FontColor2BG);span(!FontColor3BG);' +
+                        'span(!FontComic);span(!FontCourier);span(!FontTimes);' +
+                        'span(!FontSmaller);span(!FontLarger);span(!FontSmall);span(!FontBig);span(!FontDouble)',
+
+                /*
+                 * Core styles.
+                 */
+                coreStyles_bold: {
+                    element: 'span',
+                    attributes: { 'class': 'Bold' }
+                },
+                coreStyles_italic: {
+                    element: 'span',
+                    attributes: { 'class': 'Italic' }
+                },
+                coreStyles_underline: {
+                    element: 'span',
+                    attributes: { 'class': 'Underline' }
+                },
+                coreStyles_strike: {
+                    element: 'span',
+                    attributes: { 'class': 'StrikeThrough' },
+                    overrides: 'strike'
+                },
+                coreStyles_subscript: {
+                    element: 'span',
+                    attributes: { 'class': 'Subscript' },
+                    overrides: 'sub'
+                },
+                coreStyles_superscript: {
+                    element: 'span',
+                    attributes: { 'class': 'Superscript' },
+                    overrides: 'sup'
+                },
+
+                /*
+                 * Font face.
+                 */
+
+                // List of fonts available in the toolbar combo. Each font definition is
+                // separated by a semi-colon (;). We are using class names here, so each font
+                // is defined by {Combo Label}/{Class Name}.
+                font_names: 'Comic Sans MS/FontComic;Courier New/FontCourier;Times New Roman/FontTimes',
+
+                // Define the way font elements will be applied to the document. The "span"
+                // element will be used. When a font is selected, the font name defined in the
+                // above list is passed to this definition with the name "Font", being it
+                // injected in the "class" attribute.
+                // We must also instruct the editor to replace span elements that are used to
+                // set the font (Overrides).
+                font_style: {
+                    element: 'span',
+                    attributes: { 'class': '#(family)' },
+                    overrides: [
+                        {
+                            element: 'span',
+                            attributes: {
+                                'class': /^Font(?:Comic|Courier|Times)$/
+                            }
+                        }
+                    ]
+                },
+
+                /*
+                 * Font sizes.
+                 */
+                fontSize_sizes: 'Smaller/FontSmaller;Larger/FontLarger;8pt/FontSmall;14pt/FontBig;Double Size/FontDouble',
+                fontSize_style: {
+                    element: 'span',
+                    attributes: { 'class': '#(size)' },
+                    overrides: [
+                        {
+                            element: 'span',
+                            attributes: {
+                                'class': /^Font(?:Smaller|Larger|Small|Big|Double)$/
+                            }
+                        }
+                    ]
+                },
+
+                /*
+                 * Font colors.
+                 */
+                colorButton_enableMore: false,
+
+                colorButton_colors: 'FontColor1/FF9900,FontColor2/0066CC,FontColor3/F00',
+                colorButton_foreStyle: {
+                    element: 'span',
+                    attributes: { 'class': '#(color)' },
+                    overrides: [
+                        {
+                            element: 'span',
+                            attributes: {
+                                'class': /^FontColor(?:1|2|3)$/
+                            }
+                        }
+                    ]
+                },
+
+                colorButton_backStyle: {
+                    element: 'span',
+                    attributes: { 'class': '#(color)BG' },
+                    overrides: [
+                        {
+                            element: 'span',
+                            attributes: {
+                                'class': /^FontColor(?:1|2|3)BG$/
+                            }
+                        }
+                    ]
+                },
+
+                /*
+                 * Indentation.
+                 */
+                indentClasses: [ 'Indent1', 'Indent2', 'Indent3' ],
+
+                /*
+                 * Paragraph justification.
+                 */
+                justifyClasses: [ 'JustifyLeft', 'JustifyCenter', 'JustifyRight', 'JustifyFull' ],
+
+                /*
+                 * Styles combo.
+                 */
+                stylesSet: [
+                    { name: 'Strong Emphasis', element: 'strong' },
+                    { name: 'Emphasis', element: 'em' },
+
+                    { name: 'Computer Code', element: 'code' },
+                    { name: 'Keyboard Phrase', element: 'kbd' },
+                    { name: 'Sample Text', element: 'samp' },
+                    { name: 'Variable', element: 'var' },
+
+                    { name: 'Deleted Text', element: 'del' },
+                    { name: 'Inserted Text', element: 'ins' },
+
+                    { name: 'Cited Work', element: 'cite' },
+                    { name: 'Inline Quotation', element: 'q' }
+                ]
+            });
+
+        </script>
+    </p>
+
+    <label>
+        <strong>Tag</strong>
+        <input type="text" name="title" id="tag" value="" class="entry-width-long" placeholder="Xin mời nhập tag">
+    </label>
+    <!--<p>-->
+        <!--<input type="submit" value="Submit">-->
+    <!--</p>-->
+</label>
+<label>
+<div class="float-right" style="padding-top:22px;">
+    <button class="cebtn" type="submit" onclick="javascript: location.href = '/blog'; return false;">Bỏ qua</button>
+    <button class="cebtn" type="submit" name="preview" value="1">Xem trước</button>
+    <button class="cebtn" type="submit" name="draft" value="1">Lưu nháp</button>
+    <button class="cebtn" type="submit" onclick="submitEntry()">Đăng bài</button>
+</div>
+</label>
+</div>
+</div>
+
+<footer>
+    <% include ../views/partials/footer %>
+</footer>
+
+</div>
+
+
+</main>
+</div>
+</div>
+
+<!--</div>-->
+
+</form>
+</body>
+</html>

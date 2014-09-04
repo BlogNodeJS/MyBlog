@@ -36,64 +36,18 @@
                             margin-top: 0px;margin-right:0px;&nbsp;;
                             height: 100%;">
 
-                            <!--<% include ../views/partials/bodyleft %>-->
+                            <% include partials/bodyleft.ejs %>
 
-                            <ul>
-                                <li>
-                                    <div class="content" style="margin-top: 20px;">
-                                        <div class="img">
-                                            <img src="<%= user.avatar %>"
-                                                 alt="Profile" style="width: 200px;height:200px;">
-                                        </div>
-                                        <div class="text">
-                                            <h4><a href="#">Hi,I'm <%= user.username %></a></h4>
-
-                                            <h5><%= user.aboutMe %></h5>
-                                        </div>
-                                    </div>
-                                </li>
-
-                            </ul>
-                            <hr>
-                            <ul>
-                                <li>
-                                    <p style="padding-left:0;">CATAGORY<i class="icon-caret-down"></i></p>
-                                    <ul>
-                                        <% arrCategory.forEach(function(c){ %>
-                                        <li>
-                                            <a href="/postByCategoryname"><%= c.categoryName %></a>
-                                        </li>
-
-                                        <% });%>
-                                    </ul>
-                                </li>
-                            </ul>
-                            <hr>
-                            <ul>
-                                <li class="sl-menu ext-menu">
-                                    <p style="padding-left:0;">BÀI VIẾT MỚI<i class="icon-caret-down"></i></p>
-                                    <ul>
-                                        <% arrNewPost.forEach(function(newpost) { %>
-                                        <li>
-                                            <a href="#"><%= newpost.title %></a>
-                                        </li>
-                                        <% });%>
-                                    </ul>
-                                </li>
-                            </ul>
-                            <hr>
-                            <ul>
-                                <li class="sl-menu ext-menu item-1230">
-                                    <p style="padding-left:0;">TAG</p>
-                                    <% arrTag.forEach( function(t){ %>
-                                    <a href="#"><%= t.tagsName %></a>
-                                    <% });%>
-                                </li>
-
-                            </ul>
                         </div>
                         <div>
-                            body
+                            <% arrPost.forEach( function(details){ %>
+                            <ul>
+                                <li>
+                                    <p><%=details.content %></p>
+                                </li>
+
+                            </ul>
+                            <% });%>
                         </div>
 
                     </div>

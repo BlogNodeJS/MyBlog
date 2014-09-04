@@ -1,8 +1,9 @@
 var mongoose = require('mongoose');
-var Schema = mongoose.Schema;
+var Schema = mongoose.Schema,
+ObjectId = Schema.ObjectId;
 
 var categorysSchema = new Schema({
-    _it: Number,
+    _id: ObjectId,
     categoryName: String
 });
 

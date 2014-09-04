@@ -4,105 +4,155 @@
     <% include ../views/partials/head %>
     <style>
         .background {
-            /*background-image: url(http://hachick.com/image/bg.png);*/
             background-image: url(http://hachick.com/image/bg.png);
         }
 
     </style>
+    <meta charset="utf-8">
+    <meta name='ckeditor-sample-required-plugins' content='sourcearea'>
+    <script src='/js/ckeditor.js'></script>
+    <script src='/js/sample.js'></script>
+    <link href='css/sample.css' rel='stylesheet'>
+    <script src="/js/post.js"></script>
+    <!--<link rel="stylesheet" type="text/css" href='/fonts/Rancho-Regular.ttf'>-->
+    <link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/css?family=Rancho">
 
 </head>
 <!--<body class="container">-->
 <body>
-<form>
-    <div class="background">
-        <div class="container">
-            <!--<div class="back-top affix" data-spy="affix" data-offset-top="500">-->
-            <!--<a href="#"><img src="http://b0.ttimg.vn/img/img_201302/icon_backTop.gif" alt="back to top"></a>-->
-            <!--</div>-->
-            <!--<a href="" id="back-to-top"><i class="icon-long-arrow-up"></i></a>-->
-            <a href="#" class="back-to-top"><i class="icon-long-arrow-up"></i></a>
+<form >
+    <!--<div class="background">-->
+    <div class="container">
+        <a href="#" class="back-to-top"><i class="icon-long-arrow-up"></i></a>
 
-            <div>
-                <header>
-                    <% include ../views/partials/header %>
-                </header>
-                <main style="background-color: aliceblue ">
+        <div>
+            <header>
+                <% include ../views/partials/header %>
+            </header>
+            <main style="background-image: url(http://hachick.com/image/bgRight.png)">
 
-                    <div id="blog" class="row">
-                        <!--body left-->
-                        <div class="col-md-3" style="
+                <div id="blog" class="row">
+                    <!--body left-->
+
+                    <div class="col-md-3" style="
                             background-image: url(http://hachick.com/image/bgRight.png);
                             margin-left: 15px;
                             margin-top: 0px;margin-right:0px;&nbsp;;
                             height: 100%;">
 
-                            <!--<% include ../views/partials/bodyleft %>-->
+                        <div class="btn-tool">
+                            <br>
+                            <a href="#" class="sl-menu-btn" style="width:auto;margin-left: 48px;">Blog của tôi</a>
+                            <a href="#" class="sl-menu-btn" style="width:83px; ">Viết Blog</a>
+                            <br>
+                        </div>
 
-                            <ul>
-                                <li>
-                                    <div class="content" style="margin-top: 20px;">
-                                        <div class="img">
-                                            <img src="<%= user.avatar %>"
-                                                 alt="Profile" style="width: 200px;height:200px;">
-                                        </div>
-                                        <div class="text">
-                                            <h4><a href="#">Hi,I'm <%= user.username %></a></h4>
-
-                                            <h5><%= user.aboutMe %></h5>
-                                        </div>
+                        <ul>
+                            <li>
+                                <div class="content" style="margin-top: 20px;">
+                                    <div class="img">
+                                        <img src="http://img2.tamtay.vn/files/blogdata/2014/8/19/12/14467785/a6aae7e104c8165c2b322b0799631444_thumb_210x179.jpg"
+                                             alt="Profile" style="width: 200px;height:200px;">
                                     </div>
-                                </li>
+                                    <div class="text">
+                                        <h4><a href="#">Hi,I'm GOSU</a></h4>
 
-                            </ul>
-                            <hr>
-                            <ul>
-                                <li>
-                                    <p style="padding-left:0;">CATAGORY<i class="icon-caret-down"></i></p>
-                                    <ul>
-                                        <% arrCategory.forEach(function(c){ %>
-                                        <li>
-                                            <a href="/postByCategoryname"><%= c.categoryName %></a>
-                                        </li>
+                                        <h5>"Khi yêu không kể khoảng cách , có thể làm mọi thứ cho người mình yêu
+                                            thương ."</h5>
+                                    </div>
+                                </div>
+                            </li>
 
-                                        <% });%>
-                                    </ul>
-                                </li>
-                            </ul>
-                            <hr>
-                            <ul>
-                                <li class="sl-menu ext-menu">
-                                    <p style="padding-left:0;">BÀI VIẾT MỚI<i class="icon-caret-down"></i></p>
-                                    <ul>
-                                        <% arrNewPost.forEach(function(newpost) { %>
-                                        <li>
-                                            <a href="#"><%= newpost.title %></a>
-                                        </li>
-                                        <% });%>
-                                    </ul>
-                                </li>
-                            </ul>
-                            <hr>
-                            <ul>
-                                <li class="sl-menu ext-menu item-1230">
-                                    <p style="padding-left:0;">TAG</p>
-                                    <% arrTag.forEach( function(t){ %>
-                                    <a href="#"><%= t.tagsName %></a>
-                                    <% });%>
-                                </li>
+                        </ul>
+                        <hr>
+                        <ul>
+                            <li>
+                                <p style="padding-left:0;">CATAGORY<i class="icon-caret-down"></i></p>
+                                <ul>
+                                    <li>
+                                        <a href="#">vvvv</a>
+                                    </li>
 
-                            </ul>
-                        </div>
-                        <div>
-                            body
-                        </div>
+                                </ul>
+                            </li>
+                        </ul>
+                        <hr>
+                        <ul>
+                            <li class="sl-menu ext-menu">
+                                <p style="padding-left:0;">BÀI VIẾT MỚI<i class="icon-caret-down"></i></p>
+                                <ul>
+                                    <li>
+                                        <a href="#">Ăn chơi</a>
+                                    </li>
+                                    <li>
+                                        <a href="#">Giải trí</a>
+                                    </li>
+                                    <li>
+                                        <a href="#">Horoscope</a>
+                                    </li>
+                                    <li>
+                                        <a href="#">Hà Nội</a>
+                                    </li>
+                                    <li>
+                                        <a href="#">Sài Gòn</a>
+                                    </li>
+                                </ul>
+                            </li>
+                        </ul>
+                        <hr>
+                        <ul>
+                            <li class="sl-menu ext-menu item-1230">
+                                <p style="padding-left:0;">TAG</p>
+                            </li>
 
+                        </ul>
                     </div>
+
+                    <!--body right-->
+                    <div class="bd-right">
+                        <div style="margin-left: 10px;margin-right: 0px;">
+
+                            <div id="" class="clearfix">
+
+
+
+                                <article id="post-338" class="post-338 post type-post status-publish format-video hentry category-am-nhac-nghe-thuat clearfix box full-width" role="article">
+
+                                    <header>
+                                        <h2 class="post-title"><a style="text-decoration: none;color: #E93071;" href="http://blog360.vn/saint-young-men-khi-chua-va-phat-cung-tai-sinh-coi-tran/">Saint Young Men, khi Chúa và Phật cùng tái sinh cõi trần</a></h2>
+                                    </header>
+
+                                    <div class="entry-content">
+                                        <p>Cùng đến với bộ truyện tranh hài hước Saint Young Men, một trong những bộ truyện tranh gây tranh cãi tại Nhật Bạn đã bao giờ thắc mắc xem liệu Phật Tổ và Chúa có thật hay không chưa? Và họ sẽ thế nào nếu cùng đi vi hành dưới hạ giới và sống giữa […]</p>
+                                    </div>
+
+                                    <div class="meta clearfix">
+                                        <div class="icon icon-video"></div>
+                                        <span class="post-date">25 Aug</span>
+	<span class="post-comments">
+			<a href="#" title="Comment on Saint Young Men, khi Chúa và Phật cùng tái sinh cõi trần"><fb:comments-count xmlns="http://ogp.me/ns/fb#" href="http://blog360.vn/saint-young-men-khi-chua-va-phat-cung-tai-sinh-coi-tran/" fb-xfbml-state="rendered" class=" fb_comments_count_zero"><span class="fb_comments_count">0</span></fb:comments-count> Comments</a>	</span>
+                                    </div>
+                                </article>
+
+
+
+                            </div>
+                        </div>
+                    </div>
+
                     <footer>
                         <% include ../views/partials/footer %>
                     </footer>
-                </main>
-            </div>
+
+                </div>
+
+
+            </main>
         </div>
     </div>
+
+    <!--</div>-->
+
 </form>
 </body>
+</html>

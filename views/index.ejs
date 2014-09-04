@@ -10,11 +10,17 @@
 </head>
 <body>
 <!--<link href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css" rel="stylesheet">-->
-
 <script>
+    /*var obj = {
+        id: "Đây là obj.",
+        sayhello: function() {
+            console.log("this");
+        }
+    };
+    obj.f1();*/
+
     function sayhello() {
-        var x = caba;
-        document.getElementById("here").innerHTML += 'Nè: ';
+        document.getElementById("demo").innerHTML += "Hello World";
     }
 </script>
 <button onclick="sayhello()" name="btnHelllo">Click to say "Hell World"</button>
@@ -23,21 +29,9 @@
 <br>
 <a href="/home.ejs">MyBlog</a>
 <br>
-<a href="/test.ejs">Test</a>
-<br>
-<a href="/textEditor.ejs">Test Editor</a>
-<br>
-<div id="here"></div>
 
-<<<<<<< HEAD
-<br>
-<form action="/test" method="post">
-    <input type="submit" value="GO" name="btnSubmit">
-</form>
-=======
 <p><%= arrPost %></p>
 
 <p id="demo"></p>
->>>>>>> origin/master
 </body>
 </html>

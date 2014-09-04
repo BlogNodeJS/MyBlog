@@ -1,4 +1,3 @@
-<!DOCTYPE html>
 <html lang="en">
 <head>
     <% include ../views/partials/head %>
@@ -13,27 +12,14 @@
     <script src='/js/ckeditor.js'></script>
     <script src='/js/sample.js'></script>
     <link href='css/sample.css' rel='stylesheet'>
+    <link href='css/changeProfile.css' rel='stylesheet'>
     <script src="/js/post.js"></script>
-    <!--<link rel="stylesheet" type="text/css" href='/fonts/Rancho-Regular.ttf'>-->
-    <link rel="stylesheet" type="text/css" href="http://fonts.googleapis.com/css?family=Rancho">
 
-
-    <script>(function () {
-        with (this[2]) {
-            with (this[1]) {
-                with (this[0]) {
-                    return function (event) {
-                        blog_entry.limitTextLength(this, 2000, 'introLength', '[n]/2000 ký tự')
-                    };
-                }
-            }
-        }
-    })</script>
 
 </head>
 <!--<body class="container">-->
 <body>
-<form >
+<form>
 <!--<div class="background">-->
 <div class="container">
 <a href="#" class="back-to-top"><i class="icon-long-arrow-up"></i></a>
@@ -123,34 +109,18 @@
 
 <!--body right-->
 <div class="bd-right">
-<div style="margin-left: 10px;margin-right: 0px;">
 
-    <div id="" class="clearfix">
+    <div class="row pad-left-medium pad-top-half add-bottom-half remove-pad-on-phone">
 
+        <!--block : starts-->
+        <div class="offset">
+            <div class="wrap-personal-info">
+                <div class="btn btn-edit drop-click" rel="Hoàn tất"><i class="icon-edit"></i> Sửa</div>
+                <div class="drop-content personal-info-edit" role="menu" aria-labelledby="dLabel" style="display: none;">
 
-
-        <article id="post-338" class="post-338 post type-post status-publish format-video hentry category-am-nhac-nghe-thuat clearfix box full-width" role="article">
-
-            <header>
-                <h2 class="post-title"><a style="text-decoration: none;color: #E93071;" href="http://blog360.vn/saint-young-men-khi-chua-va-phat-cung-tai-sinh-coi-tran/">Saint Young Men, khi Chúa và Phật cùng tái sinh cõi trần</a></h2>
-            </header>
-
-            <div class="entry-content">
-                <p>Cùng đến với bộ truyện tranh hài hước Saint Young Men, một trong những bộ truyện tranh gây tranh cãi tại Nhật Bạn đã bao giờ thắc mắc xem liệu Phật Tổ và Chúa có thật hay không chưa? Và họ sẽ thế nào nếu cùng đi vi hành dưới hạ giới và sống giữa […]</p>
             </div>
-
-            <div class="meta clearfix">
-                <div class="icon icon-video"></div>
-                <span class="post-date">25 Aug</span>
-	<span class="post-comments">
-			<a href="#" title="Comment on Saint Young Men, khi Chúa và Phật cùng tái sinh cõi trần"><fb:comments-count xmlns="http://ogp.me/ns/fb#" href="http://blog360.vn/saint-young-men-khi-chua-va-phat-cung-tai-sinh-coi-tran/" fb-xfbml-state="rendered" class=" fb_comments_count_zero"><span class="fb_comments_count">0</span></fb:comments-count> Comments</a>	</span>
-            </div>
-        </article>
-
-
-
+        </div>
     </div>
-</div>
 </div>
 
 <footer>
@@ -159,7 +129,7 @@
 
 </div>
 
-
+</div>
 </main>
 </div>
 </div>

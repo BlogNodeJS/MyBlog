@@ -8,105 +8,67 @@
         }
 
     </style>
+    <meta charset="utf-8">
+    <meta name='ckeditor-sample-required-plugins' content='sourcearea'>
+    <script src='/js/ckeditor.js'></script>
+    <script src='/js/sample.js'></script>
+    <link href='css/sample.css' rel='stylesheet'>
+    <script src="/js/post.js"></script>
 
 </head>
 <!--<body class="container">-->
 <body>
-<form>
-    <div class="background">
-        <div class="container">
-            <!--<div class="back-top affix" data-spy="affix" data-offset-top="500">-->
-            <!--<a href="#"><img src="http://b0.ttimg.vn/img/img_201302/icon_backTop.gif" alt="back to top"></a>-->
-            <!--</div>-->
-            <!--<a href="" id="back-to-top"><i class="icon-long-arrow-up"></i></a>-->
-            <a href="#" class="back-to-top"><i class="icon-long-arrow-up"></i></a>
+<form >
+    <!--<div class="background">-->
+    <div class="container">
+        <a href="#" class="back-to-top"><i class="icon-long-arrow-up"></i></a>
 
-            <div>
-                <header>
-                    <% include ../views/partials/header %>
-                </header>
-                <main style="background-color: aliceblue ">
+        <div>
+            <header>
+                <% include ../views/partials/header %>
+            </header>
+            <main style="background-image: url(http://hachick.com/image/bgRight.png)">
 
-                    <div id="blog" class="row">
-                        <!--body left-->
-                        <div class="col-md-3" style="
+                <div id="blog" class="row">
+                    <!--body left-->
+
+                    <div class="col-md-3" style="
                             background-image: url(http://hachick.com/image/bgRight.png);
                             margin-left: 15px;
                             margin-top: 0px;margin-right:0px;&nbsp;;
                             height: 100%;">
 
-                            <ul>
-                                <li>
-                                    <div class="content" style="margin-top: 20px;">
-                                        <div class="img">
-                                            <img src="<%= user.avatar %>"
-                                                 alt="Profile" style="width: 200px;height:200px;">
-                                        </div>
-                                        <div class="text">
-                                            <h4><a href="#">Hi,I'm <%= user.username %></a></h4>
+                        <div class="btn-tool">
+                            <br>
+                            <a href="#" class="sl-menu-btn" style="width:auto;margin-left: 48px;">Blog của tôi</a>
+                            <a href="#" class="sl-menu-btn" style="width:83px; ">Viết Blog</a>
+                            <br>
+                        </div>
 
-                                            <h5><%= user.aboutMe %></h5>
-                                        </div>
-                                    </div>
-                                </li>
-
-                            </ul>
-                            <hr>
-                            <ul>
-                                <li>
-                                    <p style="padding-left:0;">CATAGORY<i class="icon-caret-down"></i></p>
-                                    <ul>
-                                        <% arrCategory.forEach(function(c){ %>
-                                        <li>
-                                            <a href="/postByCategoryname"><%= c.categoryName %></a>
-                                        </li>
-
-                                        <% });%>
-                                    </ul>
-                                </li>
-                            </ul>
-                            <hr>
-                            <ul>
-                                <li class="sl-menu ext-menu">
-                                    <p style="padding-left:0;">BÀI VIẾT MỚI<i class="icon-caret-down"></i></p>
-                                    <ul>
-                                        <% arrNewPost.forEach(function(newpost) { %>
-                                        <li>
-                                            <a href="#"><%= newpost.title %></a>
-                                        </li>
-                                        <% });%>
-                                    </ul>
-                                </li>
-                            </ul>
-                            <hr>
-                            <ul>
-                                <li class="sl-menu ext-menu item-1230">
-                                    <p style="padding-left:0;">TAG</p>
-                                    <% arrTag.forEach( function(t){ %>
-                                        <a href="#"><%= t.tagsName %></a>
-                                    <% });%>
-                                </li>
-
-                            </ul>
+                        <% include partials/bodyleft.ejs %>
                         </div>
 
                         <!--body right-->
+                        <div class="bd-right">
+                        <div style="margin-left: 10px;margin-right: 0px;">
                         <table cellspacing="0"
                                style="border-collapse:collapse;margin-left: 10px; background-image: url(http://hachick.com/image/bgLeft.png);margin-top: 5px;margin-right: 5px;/* margin-left: 5px; */border-bottom-left-radius: 1px;border-left: aqua;">
-                            <% arrPost.forEach(function(p){ %>
+                            <% arrPost.forEach(function(p, idx){ %>
                             <tr>
                                 <td>
                                     <div class="wrap_right_child">
                                         <div>
                                             <div class="wrap_right_child_title">
                                                 <font color="#00afdb" size="6pt">
-                                                    <span id="phContent_ddlArticle_lbStt_0"><%= p._id %></span>/
+                                                    <span id="phContent_ddlArticle_lbStt_0"><%= idx+1 %></span>/
                                                 </font>
                                                 <a id="phContent_ddlArticle_hplTitle_0" href="/postDetail?id=<%=p._id %>"><%= p.title %></a>
+
                                             </div>
+                                            <a href="#" class="sl-menu-btn" style="width:auto;margin-left: 48px;position: relative;top: -42px;right: -413px">Sửa</a>
                                             <div class="wrap_right_child_other">
                                                 Đăng bởi <b>
-                                                <span id="phContent_ddlArticle_lbAuthor_0">Hi,I'm GOSU</span></b>,
+                                                <span id="phContent_ddlArticle_lbAuthor_0"><%= p.user[3] %></span></b>,
                                                 ngày <b>
                                                 <span id="phContent_ddlArticle_lbDateCreated_0"><%= p.date %></span></b>
                                                 - Lấy từ nguồn <b>
@@ -130,7 +92,9 @@
                             </tr>
 
                             <% });%>
-                        </table>
+                            </table>
+                            </div>
+                            </div>
                         <footer>
                             <% include ../views/partials/footer %>
                         </footer>

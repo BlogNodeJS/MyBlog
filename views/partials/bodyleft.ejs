@@ -10,66 +10,67 @@
 <!--<li><a href="#"><i class="fa fa-book fa-fw"></i>Library</a></li>-->
 <!--<li><a href="#"><i class="fa fa-cogs fa-fw"></i>Settings</a></li>-->
 <!--</ul>-->
+
+
 <ul>
+    <% if(user && typeof user !== 'undefined') { %>
     <li>
         <div class="content" style="margin-top: 20px;">
             <div class="img">
-                <img src="http://img2.tamtay.vn/files/blogdata/2014/8/19/12/14467785/a6aae7e104c8165c2b322b0799631444_thumb_210x179.jpg"
+                <img src="<%= user.avatar %>"
                      alt="Profile" style="width: 200px;height:200px;">
             </div>
             <div class="text">
-                <h4><a href="#">Hi,I'm GOSU</a></h4>
+                <h4><a href="#">Hi,I'm <%= user.username %></a></h4>
 
-                <h5>"Khi yêu không kể khoảng cách , có thể làm mọi thứ cho người mình yêu
-                    thương ."</h5>
+                <h5><%= user.aboutMe %></h5>
             </div>
         </div>
     </li>
+    <%}%>
 
 </ul>
 <hr>
 <ul>
+    <% if(arrCategory && typeof arrCategory !== 'undefined'){ %>
     <li>
         <p style="padding-left:0;">CATAGORY<i class="icon-caret-down"></i></p>
         <ul>
             <% arrCategory.forEach(function(c){ %>
             <li>
-                <a href="#"><%= c.categoryName %></a>
+                <a href="/postByCategoryname?name=<%=c.categoryName%>"><%= c.categoryName %></a>
             </li>
 
             <% });%>
         </ul>
     </li>
+    <% }%>
 </ul>
 <hr>
 <ul>
+    <% if(arrNewPost && typeof arrNewPost !== 'undefined'){ %>
     <li class="sl-menu ext-menu">
         <p style="padding-left:0;">BÀI VIẾT MỚI<i class="icon-caret-down"></i></p>
         <ul>
+            <% arrNewPost.forEach(function(newpost) { %>
             <li>
-                <a href="#">Ăn chơi</a>
+                <a href="/postByName?name=<%= newpost.title %>"><%= newpost.title %></a>
             </li>
-            <li>
-                <a href="#">Giải trí</a>
-            </li>
-            <li>
-                <a href="#">Horoscope</a>
-            </li>
-            <li>
-                <a href="#">Hà Nội</a>
-            </li>
-            <li>
-                <a href="#">Sài Gòn</a>
-            </li>
+            <% });%>
         </ul>
     </li>
+    <%}%>
 </ul>
 <hr>
 <ul>
+    <% if(arrTag && typeof arrTag !== 'undefined'){ %>
     <li class="sl-menu ext-menu item-1230">
         <p style="padding-left:0;">TAG</p>
+        <% arrTag.forEach( function(t){ %>
+        <a href="/postByTags?id=<%= t.tagsName %>"><%= t.tagsName %></a>
+        <% });%>
     </li>
-
+    <%}%>
 </ul>
 <!--<div id="menu">-->
 <!--<a href="#" onclick="ChuaHoanThien()">-->

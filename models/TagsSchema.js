@@ -1,8 +1,9 @@
 var mongoose = require('mongoose');
-var Schema = mongoose.Schema;
+var Schema = mongoose.Schema,
+    ObjectId = Schema.ObjectId;
 
 var tagsSchema = new Schema({
-    _it: String,
+    _id: ObjectId,
     tagsName: String
 });
 
