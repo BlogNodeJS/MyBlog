@@ -42,11 +42,13 @@ var aboutController = {
 
                         userSchema.users.find( function(err,arrUsers){
                             if(err == null) {
+                                req.session.Users = arrUsers;
                                 if(arrUsers && arrUsers.length > 0) {
                                     res.render('about', {
                                         title: 'Express Todo Example',
-                                        arrUsers: arrUsers,username: req.session.username,
-                                        notification: 'Đổi thông tin thành công!'});
+
+                                        username: req.session.username, user: req.session.Users, arrCategory: req.session.Categorys, arrTag: req.session.Tags, arrPost: req.session.Posts, arrNewPost:req.session.NewPosts,notification: 'Đổi thông tin thành công!'});
+
                                 }
                             }
                         });
@@ -96,19 +98,19 @@ var aboutController = {
         var rePassword = req.param('txtRePassword');
 
         if (newPassword == rePassword) {
-            userSchema.users.update({username: username, password: oldPassword}, {$set: {password: newPassword}}, function (err, result) {
+            userSchema.users.update({username: req.session.username, password: oldPassword}, {$set: {password: newPassword}}, function (err, result) {
                 if (result) {
 
-                        res.render('aboutDetail', {username: req.session.username,notification: 'Đổi mật khẩu thành công!'});
+                    res.render('aboutDetail', { username: req.session.username, user: req.session.Users, arrCategory: req.session.Categorys, arrTag: req.session.Tags, arrPost: req.session.Posts, arrNewPost:req.session.NewPosts,notification: 'Đổi mật khẩu thành công!'});
 
                 }
                 if (!result) {
-                    res.render('aboutDetail', {username: req.session.username,notification: 'Mật khẩu cũ không đúng!'});
+                    res.render('aboutDetail', { username: req.session.username, user: req.session.Users, arrCategory: req.session.Categorys, arrTag: req.session.Tags, arrPost: req.session.Posts, arrNewPost:req.session.NewPosts,notification: 'Mật khẩu cũ không đúng!'});
                 }
 
             })
         } else {
-            res.render('aboutDetail', {username: req.session.username,notification: 'Mật khẩu mới không trùng khớp.'});
+            res.render('aboutDetail', { username: req.session.username, user: req.session.Users, arrCategory: req.session.Categorys, arrTag: req.session.Tags, arrPost: req.session.Posts, arrNewPost:req.session.NewPosts,notification: 'Mật khẩu mới không trùng khớp.'});
         }
     }
 
