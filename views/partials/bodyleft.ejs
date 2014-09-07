@@ -24,9 +24,9 @@
                      alt="Profile" style="width: 200px;height:200px;">
             </div>
             <div class="text">
-                <h4><a href="#">Hi,I'm <%= todo.displayName %></a></h4>
+                <h4><a style="text-decoration: none;" href="#" >Hi,I'm <%= todo.displayName %></a></h4>
 
-                <h5><%= todo.aboutMe %></h5>
+                <h5 style="color: red;"><%= todo.aboutMe %></h5>
             </div>
         </div>
     </li>
@@ -38,11 +38,11 @@
 <ul>
     <% if(arrCategory && typeof arrCategory !== 'undefined'){ %>
     <li>
-        <p style="padding-left:0;">CATAGORY<i class="icon-caret-down"></i></p>
+        <p style="padding-left:0;color: red;">CATAGORY<i class="icon-caret-down"></i></p>
         <ul>
             <% arrCategory.forEach(function(c){ %>
             <li>
-                <a href="/postByCategoryname?name=<%=c.categoryName%>"><%= c.categoryName %></a>
+                <a style="text-decoration: none;" href="/postByCategoryname?name=<%=c.categoryName%>"><%= c.categoryName %></a>
             </li>
             <% });%>
         </ul>
@@ -53,11 +53,11 @@
 <ul>
     <% if(arrNewPost && typeof arrNewPost !== 'undefined'){ %>
     <li class="sl-menu ext-menu">
-        <p style="padding-left:0;">BÀI VIẾT MỚI<i class="icon-caret-down"></i></p>
+        <p style="padding-left:0;color: red;">BÀI VIẾT MỚI<i class="icon-caret-down"></i></p>
         <ul>
             <% arrNewPost.forEach(function(newpost) { %>
             <li>
-                <a href="/postByName?name=<%= newpost.title %>"><%= newpost.title %></a>
+                <a style="text-decoration: none;" href="/postByName?name=<%= newpost.title %>"><%= newpost.title %></a>
             </li>
             <% });%>
         </ul>
@@ -68,9 +68,9 @@
 <ul>
     <% if(arrTag && typeof arrTag !== 'undefined'){ %>
     <li class="sl-menu ext-menu item-1230">
-        <p style="padding-left:0;">TAG</p>
+        <p style="padding-left:0;color: red;">TAG</p>
         <% arrTag.forEach( function(t){ %>
-        <a href="/postByTags?name=<%= t.tagsName %>"><%= t.tagsName %></a>
+        <a style="text-decoration: none;" href="/postByTags?name=<%= t.tagsName %>"><%= t.tagsName %></a>
         <% });%>
     </li>
     <%}%>

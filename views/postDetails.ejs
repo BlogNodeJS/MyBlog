@@ -14,47 +14,73 @@
 <!--<body class="container">-->
 <body>
 <form>
-        <div class="container">
-            <a href="#" class="back-to-top"><i class="icon-long-arrow-up"></i></a>
+    <div class="container">
+        <a href="#" class="back-to-top"><i class="icon-long-arrow-up"></i></a>
 
-            <div>
-                <header>
-                    <% include ../views/partials/header %>
-                </header>
-                <main style="background-image: url(http://hachick.com/image/bgRight.png)">
+        <div>
+            <header>
+                <% include ../views/partials/header %>
+            </header>
+            <main style="background-image: url(http://hachick.com/image/bgRight.png)">
 
-                    <div id="blog" class="row">
-                        <!--body left-->
-                        <div class="col-md-3" style="
+                <div id="blog" class="row">
+                    <!--body left-->
+                    <div class="col-md-3" style="
                             background-image: url(http://hachick.com/image/bgRight.png);
                             margin-left: 15px;
                             margin-top: 0px;margin-right:0px;&nbsp;;
                             height: 100%;">
 
-                            <% include partials/bodyleft.ejs %>
-
-                        </div>
-                        <div class="bd-right" style="padding-top: 5px;padding-bottom: 200px;">
-                            <div style="margin-left: 30px;margin-right: 0px;">
-                            <% arrPost.forEach( function(p){ %>
-                            <ul>
-                                <h2><%= p.title %></h2>
-                                <li>
-                                        <div><%- p.content %></div>
-                                </li>
-
-                            </ul>
-                            <% });%>
-                                <br><br>
-                            </div>
-                        </div>
+                        <% include partials/bodyleft.ejs %>
 
                     </div>
-                    <footer>
-                        <% include ../views/partials/footer %>
-                    </footer>
-                </main>
-            </div>
+                    <div class="bd-right" style="padding-top: 5px;padding-bottom: 200px;">
+                        <div style="margin-left: 30px;margin-right: 40px;">
+                            <% arrPost.forEach( function(p){ %>
+                            <ul>
+                                <center><h2 style="font-size: 40px;font-family: 'Rancho', serif"><%= p.title %></h2>
+                                </center>
+                                <br>
+                                <li>
+                                    <div><%- p.content %></div>
+                                </li>
+                                <br>
+                                <hr>
+
+
+                            </ul>
+
+                            <!--Show tag đây-->
+                            <ul>
+                                <li>
+                                    <div style="margin-left: 40px;border-top: 1px;border-color: red;">
+                                        <p style="font-size: 15px;">TAG:</p>
+                                        <a href="#" style="font-size: 15px;margin: 0 5px 5px 0;
+                                            padding: 4px 14px;
+                                            display: inline-block;
+                                            border: 1px solid #CCCCCC;
+                                            border-radius: 50px 50px 50px 50px;
+                                            background: #fff;
+                                            font-family: Georgia;
+                                            font-style: italic;
+                                            font-size: 90% !important;
+                                            text-decoration: none;">
+                                            <%- p.tags %></a>
+                                    </div>
+                                </li>
+                            </ul>
+<!---->
+                            <% });%>
+                            <br><br>
+                        </div>
+                    </div>
+
+                </div>
+                <footer>
+                    <% include ../views/partials/footer %>
+                </footer>
+            </main>
         </div>
+    </div>
 </form>
 </body>
