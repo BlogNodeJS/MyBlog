@@ -49,7 +49,9 @@
 
                             <div id="" class="clearfix">
 
-
+                                <% if(typeof notification !== 'undefined' && notification){ %>
+                                <div style="font-size: large; margin-top: 200px"><center><%= notification %></center></div>
+                                <% }else{ %>
 
                                 <% arrPost.forEach(function (p){ %>
                                 <article id="post-338" class="post-338 post type-post status-publish format-video hentry category-am-nhac-nghe-thuat clearfix box full-width" role="article">
@@ -70,7 +72,7 @@
                                     </div>
                                 </article>
                                 <%});%>
-
+                                <%}%>
 
 
                             </div>

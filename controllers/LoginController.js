@@ -17,7 +17,7 @@ var loginController = {
                 if(result != null){
                     //success
                     req.session.username = _username;
-                    res.render('home');
+                    res.render('home', {errors: ""});
                 }else {
                     errors = 'Đăng nhập thất bại ! Tài khoản hoặc Mật khẩu không đúng';
                     res.render('login', {errors: errors});

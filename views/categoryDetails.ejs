@@ -62,7 +62,9 @@
 
     <div id="" class="clearfix">
 
-
+        <% if(typeof notification !== 'undefined' && notification){ %>
+        <div style="font-size: large; margin-top: 200px"><center><%= notification %></center></div>
+        <% }else{ %>
         <% arrPost.forEach(function (p){ %>
         <article id="post-338" class="post-338 post type-post status-publish format-video hentry category-am-nhac-nghe-thuat clearfix box full-width" role="article">
 
@@ -76,32 +78,23 @@
 
             <div class="meta clearfix">
                 <div class="icon icon-video"></div>
-                <span class="post-date">25 Aug</span>
+                <span class="post-date"><p style="font-size: 10px;"><%= p.date %></p></span>
 	<span class="post-comments">
 			<a href="#" title="Comment on Saint Young Men, khi Chúa và Phật cùng tái sinh cõi trần"><fb:comments-count xmlns="http://ogp.me/ns/fb#" href="http://blog360.vn/saint-young-men-khi-chua-va-phat-cung-tai-sinh-coi-tran/" fb-xfbml-state="rendered" class=" fb_comments_count_zero"><span class="fb_comments_count">0</span></fb:comments-count> Comments</a>	</span>
             </div>
         </article>
         <%});%>
-
-
-
+        <%}%>
     </div>
 </div>
 </div>
-
 <footer>
     <% include ../views/partials/footer %>
 </footer>
-
 </div>
-
-
 </main>
 </div>
 </div>
-
-<!--</div>-->
-
 </form>
 </body>
 </html>

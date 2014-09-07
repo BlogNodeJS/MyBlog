@@ -46,6 +46,12 @@
                             <div class="col-md-6 forgot-pass-content">
                                 <a href="javascription:void(0)" class="forgot-pass">Forgot Password</a>
                             </div>
+                            <br>
+                            <div style="color: #ffffff; text-shadow: 2px 2px 2px red; font-size: large">
+                                <% if(typeof errors !== 'undefined' && errors){ %>
+                                <%= errors %>
+                                <% } %>
+                            </div>
                         </div>
                     </div>
                 </form>
