@@ -5,6 +5,7 @@ var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var session = require('express-session');
 var bodyParser = require('body-parser');
+var multer = require('multer');
 var mongoose = require('mongoose');
 mongoose.connect('mongodb://localhost/MyBlog');
 //routes
@@ -24,6 +25,7 @@ app.use(bodyParser.urlencoded());
 app.use(cookieParser());
 app.use(session({secret: '123456',resave: true, saveUninitialized: true}));
 app.use(express.static(path.join(__dirname, 'public')));
+app.use(multer({dest: './public/images/'}));
 //routes:
 app.use('/', my_blog);
 app.use('/postDetail', my_blog);
