@@ -14,19 +14,14 @@
 <!--<body class="container">-->
 <body>
 <form>
-    <div class="background">
         <div class="container">
-            <!--<div class="back-top affix" data-spy="affix" data-offset-top="500">-->
-            <!--<a href="#"><img src="http://b0.ttimg.vn/img/img_201302/icon_backTop.gif" alt="back to top"></a>-->
-            <!--</div>-->
-            <!--<a href="" id="back-to-top"><i class="icon-long-arrow-up"></i></a>-->
             <a href="#" class="back-to-top"><i class="icon-long-arrow-up"></i></a>
 
             <div>
                 <header>
                     <% include ../views/partials/header %>
                 </header>
-                <main style="background-color: aliceblue ">
+                <main style="background-image: url(http://hachick.com/image/bgRight.png)">
 
                     <div id="blog" class="row">
                         <!--body left-->
@@ -39,16 +34,19 @@
                             <% include partials/bodyleft.ejs %>
 
                         </div>
-                        <div>
+                        <div class="bd-right" style="padding-top: 5px;padding-bottom: 200px;">
+                            <div style="margin-left: 30px;margin-right: 0px;">
                             <% arrPost.forEach( function(p){ %>
                             <ul>
                                 <h2><%= p.title %></h2>
                                 <li>
-                                    <div><%- p.content %></div>
+                                        <div><%- p.content %></div>
                                 </li>
 
                             </ul>
                             <% });%>
+                                <br><br>
+                            </div>
                         </div>
 
                     </div>
@@ -58,6 +56,5 @@
                 </main>
             </div>
         </div>
-    </div>
 </form>
 </body>

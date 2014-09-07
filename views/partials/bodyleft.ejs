@@ -14,19 +14,23 @@
 
 <ul>
     <% if(user && typeof user !== 'undefined') { %>
+    <% user.forEach( function (todo){ %>
+
+    <% user.toString() %>
     <li>
         <div class="content" style="margin-top: 20px;">
             <div class="img">
-                <img src="<%= user.avatar %>"
+                <img src="<%= todo.avatar %>"
                      alt="Profile" style="width: 200px;height:200px;">
             </div>
             <div class="text">
-                <h4><a href="#">Hi,I'm <%= user.username %></a></h4>
+                <h4><a href="#">Hi,I'm <%= todo.displayName %></a></h4>
 
-                <h5><%= user.aboutMe %></h5>
+                <h5><%= todo.aboutMe %></h5>
             </div>
         </div>
     </li>
+    <% }); %>
     <%}%>
 
 </ul>
@@ -40,7 +44,6 @@
             <li>
                 <a href="/postByCategoryname?name=<%=c.categoryName%>"><%= c.categoryName %></a>
             </li>
-
             <% });%>
         </ul>
     </li>
@@ -67,7 +70,7 @@
     <li class="sl-menu ext-menu item-1230">
         <p style="padding-left:0;">TAG</p>
         <% arrTag.forEach( function(t){ %>
-        <a href="/postByTags?id=<%= t.tagsName %>"><%= t.tagsName %></a>
+        <a href="/postByTags?name=<%= t.tagsName %>"><%= t.tagsName %></a>
         <% });%>
     </li>
     <%}%>

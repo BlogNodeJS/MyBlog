@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -6,60 +7,51 @@
     <!--for responsive feature-->
     <meta name='viewport' content='width=device-width, initial-scale=1.0'>
     <link rel='stylesheet' href='/css/bootstrap-responsive.css'>
-    <link rel='stylesheet' href='/css/style.css'>
-    <link href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css" rel="stylesheet">
+    <script src="../js/login.js"></script>
+    <link rel="stylesheet" href="../css/login.css">
+    <script src="http://mymaplist.com/js/vendor/TweenLite.min.js"></script>
+    <style>
+
+    </style>
 </head>
 <body>
-<div class="background">
-    <img src="http://risewall.com/wp-content/uploads/2014/06/New-Golden-Gate-Bridge-Wallpapers-6.jpg" style="width: 100%;height: 100%;">
-
-    <div class="container">
-        <!--<div class="row" >-->
-            <form class="form-signin mg-btm" action="/login/login" method="post" style="margin-top: -760px;position: relative;">
-                <h3 class="heading-desc">
-                    <button type="button" class="close pull-right" aria-hidden="true">×</button>
-                    MyBlog Node JS
-                </h3>
-                <div class="social-box">
-                    <div class="row mg-btm">
-                        <div class="col-md-12">
-                            <a href="#" class="btn btn-primary btn-block">
-                                <i class="icon-facebook"></i>    Login with Facebook
-                            </a>
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="col-md-12">
-                            <a href="#" class="btn btn-block btn-social btn-google-plus">
-                                <i class="fa fa-google-plus"></i> Sign in with Google
-                            </a>
-                        </div>
-                    </div>
+<div class="container">
+    <div class="row">
+        <div class="col-md-12">
+            <div class="pr-wrap">
+                <div class="pass-reset">
+                    <label>
+                        Enter the email you signed up with</label>
+                    <input type="email" placeholder="Email" />
+                    <input type="submit" value="Submit" class="pass-reset-submit btn btn-success btn-sm" />
                 </div>
-                <div class="main">
-
-                    <input type="text" class="form-control" placeholder="Username..." name="txtUsername" autofocus>
-                    <input type="password" class="form-control" placeholder="Password..." name="txtPassword">
-
-
-                    <span class="clearfix"></span>
-                </div>
-                <div class="login-footer">
-                    <div class="row">
-                        <div class="col-xs-6 col-md-6">
-                            <div class="left-section">
-                                <a href="">Forgot your password?</a>
-                                <a href="">Sign up now</a>
+            </div>
+            <div class="wrap">
+                <p class="form-title">
+                    Sign In</p>
+                <form class="login" action="/login/login" method="post">
+                    <input type="text" placeholder="Username" name="txtUsername" />
+                    <input type="password" placeholder="Password" name="txtPassword"/>
+                    <input type="submit" value="Sign In" class="btn btn-success btn-sm" />
+                    <div class="remember-forgot">
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="checkbox">
+                                    <label>
+                                        <input type="checkbox" />
+                                        Remember Me
+                                    </label>
+                                </div>
+                            </div>
+                            <div class="col-md-6 forgot-pass-content">
+                                <a href="javascription:void(0)" class="forgot-pass">Forgot Password</a>
                             </div>
                         </div>
-                        <div class="col-xs-6 col-md-6 pull-right">
-                            <button type="submit" class="btn btn-large btn-danger pull-right">Login</button>
-                        </div>
                     </div>
-                </div>
-            </form>
-        <!--</div>-->
+                </form>
+            </div>
+        </div>
     </div>
 </div>
+
 </body>
-</html>

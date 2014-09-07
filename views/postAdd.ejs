@@ -15,21 +15,21 @@
     <link href='css/sample.css' rel='stylesheet'>
     <script src="/js/post.js"></script>
     <script>(function () {
-        with (this[2]) {
-            with (this[1]) {
-                with (this[0]) {
-                    return function (event) {
-                        blog_entry.limitTextLength(this, 2000, 'introLength', '[n]/2000 ký tự')
-                    };
+            with (this[2]) {
+                with (this[1]) {
+                    with (this[0]) {
+                        return function (event) {
+                            blog_entry.limitTextLength(this, 2000, 'introLength', '[n]/2000 ký tự')
+                        };
+                    }
                 }
             }
-        }
-    })</script>
+        })</script>
 
 </head>
 <!--<body class="container">-->
 <body>
-<form >
+<form action="" method="post" >
 <!--<div class="background">-->
 <div class="container">
 <a href="#" class="back-to-top"><i class="icon-long-arrow-up"></i></a>
@@ -48,7 +48,8 @@
                             margin-left: 15px;
                             margin-top: 0px;margin-right:0px;&nbsp;;
                             height: 100%;">
-    <%include partials/bodyleft.ejs %>
+    <% include partials/bodyleft.ejs %>
+
 </div>
 
 <!--body right-->
@@ -58,30 +59,41 @@
 <br>
 <label>
     <strong>Tiêu đề</strong>
-    <input type="text" name="title" id="title" value="" class="entry-width-long" placeholder="Xin mời nhập tiêu đề">
+    <input type="text" name="_title" id="title"  class="entry-width-long" placeholder="Xin mời nhập tiêu đề">
 </label>
 <br>
 <label>
     <strong>Category</strong>
-    <select class="entry-width-short" name="cid" id="cid">
-        <option value="0"> - Chọn danh mục</option>
-        <option value="1">...</option>
+    <select class="entry-width-short" name="tags_" id="cid">
+        <% arrCategory.forEach( function (todo){ %>
+        <p>
+    <span>
+        <% arrCategory.toString() %>
+        <option value='<%= todo.categoryName %>' ><%= todo.categoryName %></option>
+    <br/>
+    </span>
+        </p>
+        <% }); %>
     </select>
+
+
+
 </label>
+<hr>
 
 <label>
     <strong style="float:left;">Trích dẫn
         <small>(*)</small>
     </strong>
     <b class="note-user-01" style="float:right;" id="introLength">0/2000 ký tự</b>
-    <textarea name="intro" id="intro" class="" placeholder=""
+    <textarea name="_description" id="intro" class="" placeholder=""
               onkeyup="blog_entry.limitTextLength(this, 2000, 'introLength', '[n]/2000 ký tự' )"
               style="height: 90px;width: 808px;"></textarea>
 </label>
 <hr>
 <label>
     <strong>Ảnh bìa</strong>
-    <input style="height: 40px;width: 404px;" type="file" name="entry_thumb" id="anhbia" value="" class="entry-width-long"
+    <input style="height: 40px;width: 404px;" type="file" name="_image" id="anhbia"  class="entry-width-long"
            placeholder="Xin mời nhập tag">
     <p style="line-height:16px;font-size:11px;color:#777;">Định dạng : jpg , png . Kích thước ~750px*250px</p>
 </label>
@@ -89,7 +101,7 @@
 <label style="width: 808px;">
 
     <p>
-        <textarea cols="80" id="editor1" name="content" rows="10" style="width: 810px;">....</textarea>
+        <textarea cols="80" id="editor1" name="_content" rows="10" style="width: 810px;"></textarea>
         <script>
 
             CKEDITOR.replace('editor1', {
@@ -250,26 +262,60 @@
 
         </script>
     </p>
-
-    <label>
-        <strong>Tag</strong>
-        <input type="text" name="title" id="tag" value="" class="entry-width-long" placeholder="Xin mời nhập tag">
-    </label>
     <!--<p>-->
-        <!--<input type="submit" value="Submit">-->
+    <!--<input type="submit" value="Submit">-->
     <!--</p>-->
 </label>
-<label>
-<div class="float-right" style="padding-top:22px;">
-    <button class="cebtn" type="submit" onclick="javascript: location.href = '/blog'; return false;">Bỏ qua</button>
-    <button class="cebtn" type="submit" name="preview" value="1">Xem trước</button>
-    <button class="cebtn" type="submit" name="draft" value="1">Lưu nháp</button>
-    <button class="cebtn" type="submit" onclick="submitEntry()">Đăng bài</button>
-</div>
-</label>
-</div>
-</div>
 
+<label>
+    <strong>Tag</strong>
+    <input type="text" name="_tags" id="tag" class="entry-width-long" placeholder="Xin mời nhập tag">
+</label>
+<br>
+<hr>
+<label>
+    <div class="float-right" style="padding-top:22px;">
+        <button class="cebtn" type="submit" onclick="javascript: location.href = '/blog'; return false;">Bỏ qua</button>
+        <button class="cebtn" type="submit" name="preview" value="1">Xem trước</button>
+        <button class="cebtn" type="submit" name="draft" value="1">Lưu nháp</button>
+        <button class="cebtn" type="submit" >Đăng bài</button>
+    </div>
+</label>
+
+</div>
+</div>
+<% user.forEach( function (todo){ %>
+<p>
+                <span>
+
+
+                    <input type="hidden" value='<%= todo.displayName %>' name="idu">
+
+                    <br/>
+                    <input type="hidden" value='<%= todo.username %>' name="users">
+
+                    <br/>
+                    <input type="hidden" value='<%= todo.password %>' name="pass">
+
+                    <br/>
+                    <input type="hidden" value='<%= todo.fullname %>' name="full">
+
+                    <br/>
+                    <input type="hidden" value='<%= todo.phone %>' name="phone">
+
+                    <br/>
+                     <input type="hidden" value='<%= todo.email %>' name="email">
+
+                    <br/>
+                     <input type="hidden" value='<%= todo.avatar %>' name="avatar">
+
+                    <br/>
+                     <input type="hidden" value='<%= todo.aboutMe %>' name="about">
+
+                    <br/>
+                </span>
+</p>
+<% }); %>
 <footer>
     <% include ../views/partials/footer %>
 </footer>

@@ -10,7 +10,8 @@ var usersSchema = new Schema({
     phone: String,
     email: String,
     avatar: String,
-    aboutMe: String
+    aboutMe: String,
+    displayName:String
 });
 
 var users = mongoose.model('users', usersSchema);

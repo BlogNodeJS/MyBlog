@@ -1,18 +1,9 @@
 
-<!--<header class="masthead">-->
-    <!--<div class="container">-->
-        <!--<div class="row">-->
-            <!--<div class="col-sm-6">-->
-                <!--<h1><a href="#" >MyBlog</a>-->
-                    <!--<p class="lead">My love is life!</p></h1>-->
-            <!--</div>-->
-            <!--</div>-->
-        <!--</div>-->
-    <!--</div>-->
+<!--</header>-->
     <div class="tt-header">
         <div class="site-wrap">
             <ul>
-                <li class="ml-menu"><a href="#">MyBlog</a></li>
+                <li class="ml-menu"><a href="/">MyBlog</a></li>
                 <li class="ml-menu"><a href="#">Ảnh</a></li>
                 <li class="ml-menu active">
                     <a href="#">Blog</a>
@@ -23,7 +14,7 @@
                     <li class="ml-menu">
                         <div class="tt-search">
                             <div>
-                                <input type="text" placeholder="Nhập từ khóa" class="input-medium" name="txtSearch">
+                                <input style="height: 24px;width: 190px;" type="text" placeholder="Nhập từ khóa" class="input-medium" name="txtSearch">
                             </div>
                             <button type="submit"><i class="icon-search"></i></button>
                         </div>
@@ -32,13 +23,28 @@
 
                 <li class="ml-menu ml-right ext-menu user">
 
+                <%if(username && typeof username !== 'undefined'){%>
                 <li class="ml-menu ml-right">
-                    <a href="#">Đăng ký</a>
+                    <a href="/logout">Logout</a>
                 </li>
+                <li class="ml-menu ml-right">
+                    <a href="/about"> Hello <%=username%></a>
+
+                </li>
+                <li class="ml-menu ml-right">
+                    <%if(username && typeof username !== 'undefined') {%>
+                    <a href="postAdd"  style="width:83px; display: inline ">Viết Blog</a>
+                    <%}else {%>
+                    <a href="#"  style="width:83px; display: none ">Viết Blog</a>
+                    <%}%>
+
+                </li>
+
+                <%}else {%>
                 <li class="ml-menu ml-right">
                     <a href="/login">Đăng nhập</a>
                 </li>
-
+                <%}%>
                 </li>
 
             </ul>

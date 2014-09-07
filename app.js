@@ -11,7 +11,7 @@ mongoose.connect('mongodb://localhost/MyBlog');
 var routes = require('./routes/index');
 var login = require('./routes/login');
 var my_blog = require('./routes/my_blog');
-
+var about= require('./routes/about');
 
 var app = express();
 // view engine setup
@@ -31,8 +31,14 @@ app.use('/postByName', my_blog);
 app.use('/searchPost', my_blog);
 app.use('/postByTags', my_blog)
 app.use('/postByCategoryname', my_blog);
-app.use('/login', login);
-app.use('/login/login', login);
+app.use('/login', my_blog);
+app.use('/logout', my_blog);
+app.use('/postAdd',my_blog);
+app.use('/postEdit',my_blog);
+
+
+app.use('/about',about);
+
 
 //views:
 //app.use('/', loginViews);

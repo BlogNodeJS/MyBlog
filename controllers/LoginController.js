@@ -5,7 +5,7 @@ var userSchema = require('../models/UsersSchema');
 var errors = null;
 var loginController = {
     index: function(req, res) {
-        res.render('login');
+        res.render('login', {errors: errors});
     },
 
     login: function (req, res ) {
@@ -17,9 +17,9 @@ var loginController = {
                 if(result != null){
                     //success
                     req.session.username = _username;
-                    res.render('myblog', {username:_username});
+                    res.render('home');
                 }else {
-                    errors = 'Login fail';
+                    errors = 'Đăng nhập thất bại ! Tài khoản hoặc Mật khẩu không đúng';
                     res.render('login', {errors: errors});
 
                 }
@@ -30,6 +30,6 @@ var loginController = {
 
 module.exports = function(router) {
     router.get('/', loginController.index);
-    router.post('/login', loginController.login);
+    router.post('/', loginController.login);
     return router;
 }

@@ -39,14 +39,6 @@
                             margin-left: 15px;
                             margin-top: 0px;margin-right:0px;&nbsp;;
                             height: 100%;">
-
-                        <div class="btn-tool">
-                            <br>
-                            <a href="#" class="sl-menu-btn" style="width:auto;margin-left: 48px;">Blog của tôi</a>
-                            <a href="#" class="sl-menu-btn" style="width:83px; ">Viết Blog</a>
-                            <br>
-                        </div>
-
                         <% include partials/bodyleft.ejs %>
 
                     </div>
@@ -72,9 +64,9 @@
 
                                     <div class="meta clearfix">
                                         <div class="icon icon-video"></div>
-                                        <span class="post-date">25 Aug</span>
+                                        <span class="post-date"><p style="font-size: 10px;"><%= p.date %></p></span>
 	<span class="post-comments">
-			<a href="#" title="Comment on Saint Young Men, khi Chúa và Phật cùng tái sinh cõi trần"><fb:comments-count xmlns="http://ogp.me/ns/fb#" href="http://blog360.vn/saint-young-men-khi-chua-va-phat-cung-tai-sinh-coi-tran/" fb-xfbml-state="rendered" class=" fb_comments_count_zero"><span class="fb_comments_count">0</span></fb:comments-count> Comments</a>	</span>
+			<a href="#" title="<%= p.title  %>"><fb:comments-count xmlns="http://ogp.me/ns/fb#" href="#" fb-xfbml-state="rendered" class=" fb_comments_count_zero"><span class="fb_comments_count">0</span></fb:comments-count> Comments</a>	</span>
                                     </div>
                                 </article>
                                 <%});%>

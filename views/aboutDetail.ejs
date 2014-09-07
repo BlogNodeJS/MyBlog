@@ -1,0 +1,100 @@
+<html lang="en">
+<head>
+    <% include ../views/partials/head %>
+    <style>
+        .background {
+            background-image: url(http://hachick.com/image/bg.png);
+        }
+
+    </style>
+    <meta charset="utf-8">
+    <meta name='ckeditor-sample-required-plugins' content='sourcearea'>
+    <script src='/js/ckeditor.js'></script>
+    <script src='/js/sample.js'></script>
+    <link href='css/sample.css' rel='stylesheet'>
+    <script src="/js/post.js"></script>
+
+
+</head>
+<!--<body class="container">-->
+<body>
+<form action="/about/aboutDetail" method="post">
+    <!--<div class="background">-->
+    <div class="container">
+        <a href="#" class="back-to-top"><i class="icon-long-arrow-up"></i></a>
+
+        <div>
+            <header>
+                <% include ../views/partials/header %>
+            </header>
+            <main style="background-image: url(http://hachick.com/image/bgRight.png)">
+
+                <div id="blog" class="row">
+                    <!--body left-->
+
+                    <div class="col-md-3" style="
+                            background-image: url(http://hachick.com/image/bgRight.png);
+                            margin-left: 15px;
+                            margin-top: 0px;margin-right:0px;&nbsp;;
+                            height: 100%;">
+                        <% include partials/bodyleft.ejs %>
+                    </div>
+
+                    <!--body right-->
+                    <div class="bd-right">
+
+
+                        <div style="margin-left: 200px;margin-right: 0px;">
+                            <br>
+                            <br>
+
+                            <label>
+                            <input type="hidden" value="Siêu Nhân Con Nít" name="userna">
+
+                                <strong>Mật khẩu cũ</strong>
+                                <input type="text" name="txtOldPassword"   class="entry-width-long" placeholder="Xin mời mật khẩu cũ">
+                            </label>
+                            <br>
+                            <label>
+                                <strong>Mật khẩu mới</strong>
+                                <input type="text" name="txtNewPassword"   class="entry-width-long" placeholder="Xin mời nhập mật khẩu mới">
+                            </label>
+                            <br>
+                            <label>
+                                <strong>Nhập lại mật khẩu</strong>
+                                <input type="text" name="txtRePassword"   class="entry-width-long" placeholder="Xin mời nhập lại mật khẩu mới">
+                                <br>
+                                <% if(typeof notification !== 'undefined' && notification){ %>
+                                <%= notification %>
+                                <% } %>
+
+                            </label>
+                            <br>
+                            <label>
+                                <div class="float-right" style="padding-top:22px;">
+                                    <button class="cebtn" type="submit" name="huy">Huỷ</button>
+                                    <input type="submit" value="Cap nhat" class="cebtn" >
+                                </div>
+                            </label>
+                            <br>
+                            <br>
+
+                        </div>
+                    </div>
+
+
+        <footer>
+            <% include ../views/partials/footer %>
+        </footer>
+
+
+    </div>
+    </main>
+    </div>
+    </div>
+
+    <!--</div>-->
+
+</form>
+</body>
+</html>
