@@ -37,7 +37,7 @@ app.use('/login', my_blog);
 app.use('/logout', my_blog);
 app.use('/postAdd',my_blog);
 app.use('/postEdit',my_blog);
-
+app.use('/createNewCategory',about);
 
 app.use('/about',about);
 

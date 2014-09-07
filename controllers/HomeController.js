@@ -213,6 +213,41 @@ var homeController = {
 
     logout: function(req, res){
         res.render('home', {username:null ,arrPost: req.session.Posts, user: req.session.Users, arrCategory: req.session.Categorys, arrTag: req.session.Tags, arrNewPost: req.session.NewPosts, errors: "" });
+    },
+    findCategory: function(req,res){
+
+        usersSchema.users.find(function (err, p) {
+            if (err == null) {
+                if (p && p.length > 0) {
+                    categorysSchema.categorys.find(function (err, post) {
+                        if (err == null) {
+                            if (post && post.length > 0) {
+
+                                res.render('createNewCategory', {username: req.session.username,arrPost: p, user: req.session.Users, arrCategory: req.session.Categorys, arrTag: req.session.Tags, arrNewPost: req.session.NewPosts });
+
+                            }
+                        }
+                    });
+
+
+                }
+            }
+        });
+
+
+    },
+
+
+    insertCategory: function(req,res) {
+        var _categoryName = req.body.ten;
+        new categorysSchema.categorys({
+            _id:null,
+            categoryName:_categoryName
+        }).save(function(err){
+                if(! err){
+                    res.redirect('/');
+                }
+            });
     }
 };
 
@@ -230,5 +265,7 @@ module.exports = function (router) {
     router.post('/postAdd',homeController.insert);
     router.get('/postEdit',homeController.findPostByIdEdit);
     router.post('/postEdit',homeController.findPostByIdAndUpdate);
+    router.get('/createNewCategory',homeController.findCategory);
+    router.post('/createNewCategory',homeController.insertCategory);
     return router;
 };

@@ -1,0 +1,79 @@
+<html lang="en">
+<head>
+    <% include ../views/partials/head %>
+    <style>
+        .background {
+            background-image: url(http://hachick.com/image/bg.png);
+        }
+
+    </style>
+    <meta charset="utf-8">
+    <meta name='ckeditor-sample-required-plugins' content='sourcearea'>
+    <script src='/js/ckeditor.js'></script>
+    <script src='/js/sample.js'></script>
+    <link href='css/sample.css' rel='stylesheet'>
+    <script src="/js/post.js"></script>
+
+
+</head>
+<!--<body class="container">-->
+<body>
+<form method="post" action="">
+    <!--<div class="background">-->
+    <div class="container">
+        <a href="#" class="back-to-top"><i class="icon-long-arrow-up"></i></a>
+
+        <div>
+            <header>
+                <% include ../views/partials/header %>
+            </header>
+            <main style="background-image: url(http://hachick.com/image/bgRight.png)">
+
+                <div id="blog" class="row">
+                    <!--body left-->
+
+                    <div class="col-md-3" style="
+                            background-image: url(http://hachick.com/image/bgRight.png);
+                            margin-left: 15px;
+                            margin-top: 0px;margin-right:0px;&nbsp;;
+                            height: 100%;">
+
+                        <% include partials/bodyleft.ejs %>
+                    </div>
+
+                    <!--body right-->
+                    <div class="bd-right">
+                        <div style="margin-left: 200px;margin-right: 0px;">
+                            <br>
+                            <br>
+                            <label>
+                                <strong>Category</strong>
+                                <input type="text" name="ten" id="ten" value="" class="entry-width-long" placeholder="Xin mời nhập category">
+                            </label>
+                            <br>
+                            <label>
+                                <div class="float-right" style="padding-top:22px;">
+                                    <button class="cebtn" type="submit" name="huy">Huỷ</button>
+                                    <button class="cebtn" type="submit" name="capNhat" value="1">Thêm mới</button>
+                                </div>
+                            </label>
+                            <br>
+                            <br>
+                        </div>
+                    </div>
+
+                    <footer>
+                        <% include ../views/partials/footer %>
+                    </footer>
+
+
+                </div>
+            </main>
+        </div>
+    </div>
+
+    <!--</div>-->
+
+</form>
+</body>
+</html>
