@@ -40,6 +40,18 @@
                             <ul>
                                 <center><h2 style="font-size: 40px;font-family: 'Rancho', serif"><%= p.title %></h2>
                                 </center>
+                                <%if( username && typeof username !== 'undefined'){ %>
+                                <a href="/postEdit?id=<%=p._id %>" class="sl-menu-btn" style="display: inline; width:auto;position: relative;top: -42px;right: -665px">Sửa</a>
+                                <%}else {%>
+                                <a href="/postEdit?id=<%=p._id %>" class="sl-menu-btn" style="display: none; width:auto;position: relative;top: -42px;right: -665px">Sửa</a>
+                                <%}%>
+                                <div class="wrap_right_child_other">
+                                    Đăng bởi <b>
+                                    <span id="phContent_ddlArticle_lbAuthor_0"><%= p.user[0] %></span></b>,
+                                    ngày <b>
+                                    <span id="phContent_ddlArticle_lbDateCreated_0"><%= p.date %></span></b>
+
+                                </div>
                                 <br>
                                 <li>
                                     <div><%- p.content %></div>

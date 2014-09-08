@@ -40,6 +40,7 @@
 
                     <!--body right-->
                     <div class="bd-right">
+                        <%if( username && typeof username !== 'undefined'){ %>
                         <div style="margin-left: 200px;margin-right: 0px;">
                             <br>
                             <br>
@@ -118,6 +119,85 @@
                             <br>
 
                         </div>
+                        <%}else {%>
+                        <div style="margin-left: 200px;margin-right: 0px;">
+                            <br>
+                            <br>
+
+                            <% user.forEach( function (todo){ %>
+                            <label>
+
+                                <center><img src='<%=todo.avatar%>' style="height: 200px;width:200px;"></center>
+                                <br>
+                                <center><input style=" visibility : hidden;height: 40px;width: 404px;" type="file" name="entry_thumb" id="anhbia" value=""
+                                               class="entry-width-long"
+                                               placeholder="Xin mời nhập tag">
+                                    <p style="line-height:16px;font-size:11px;color:#777;visibility : hidden;">Định dạng : jpg , png . Kích thước ~200px * 200px</p></center>
+                            </label>
+                            <br>
+                            <label>
+
+
+
+                                <input disabled type="hidden" value='<%=todo.avatar%>' name="image_">
+                                <input disabled type="hidden" name="id" value='<%= todo._id %>'>
+                                <input disabled type="hidden" name="username" value='<%= todo.username %>'>
+                                <strong>Họ và tên</strong>
+                                <input disabled type="text" name="fullname_" value='<%= todo.fullname %>' class="entry-width-long" placeholder="Xin mời nhập tên">
+                            </label>
+                            <br>
+                            <label>
+                                <strong>Tên hiển thị</strong>
+                                <input disabled type="text" name="user" id="tenHt"  value='<%= todo.displayName %>' class="entry-width-long" placeholder="Xin mời nhập tên hiển thị">
+                            </label>
+                            <br>
+                            <label>
+                                <strong>Email</strong>
+                                <input disabled type="text" name="email_" value='<%= todo.email %>' class="entry-width-long" placeholder="Xin mời nhập email">
+                            </label>
+                            <br>
+                            <label>
+                                <strong>Số điện thoại</strong>
+                                <input disabled type="text" name="phone_" value='<%= todo.phone %>' class="entry-width-long" placeholder="Xin mời nhập số điện thoại">
+                            </label>
+                            <br>
+                            <label>
+                                <strong style="float:left;">Giới thiệu bản thân</strong>
+                                <br>
+                                <textarea disabled name="about_" id="intro" class="" placeholder="" style="height: 90px;width: 404px;"><%- todo.aboutMe %></textarea>
+                                <br>
+                                <% if(typeof notification !== 'undefined' && notification){ %>
+                                <%= notification %>
+                                <% } %>
+
+                            </label>
+                            <label>
+                                <br/>
+
+                                <div class="float-right" style="padding-top:22px;">
+                                    <input style="visibility : hidden;" type="submit" value="Cập nhật" class="cebtn" >
+                                    <a href="/about/aboutDetail" class="sl-menu-btn" style="height:29px;width: 85px; visibility : hidden;" title="Update this todo item">Đổi mật khẩu</a>
+                                </div>
+                            </label>
+                            <hr>
+                            <hr>
+                            <br>
+
+
+                            <!--<p>-->
+                            <!--<input type="submit" value="Submit">-->
+                            <!--</p>-->
+                            </label>
+
+
+                            <% }); %>
+
+
+                            <br>
+                            <br>
+
+                        </div>
+                        <%}%>
                     </div>
 
 

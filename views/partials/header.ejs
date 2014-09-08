@@ -3,23 +3,22 @@
     <div class="tt-header">
         <div class="site-wrap">
             <ul>
-                <li class="ml-menu"><a  style="text-decoration: none;" href="/">MyBlog</a></li>
-                <li class="ml-menu"><a style="text-decoration: none;" href="#">Ảnh</a></li>
+                <!--<li class="ml-menu"><a  style="text-decoration: none;" href="/">Home</a></li>-->
                 <li class="ml-menu active">
-                    <a style="text-decoration: none;" href="#">Blog</a>
+                    <a style="text-decoration: none;" href="/">My Blog</a>
                     <img src="http://b0.ttimg.vn/img/img_201302/arrow_actiNav.gif">
                 </li>
                 <li class="ml-menu"><a style="text-decoration: none;" href="/searchPost">Tìm Kiếm</a></li>
-                <form id="header-search-form" class="fl" accept-charset="utf-8" method="post" action="/searchPost" style="margin: 0px;">
-                    <li class="ml-menu">
-                        <div class="tt-search">
-                            <div>
-                                <input style="height: 24px;width: 190px;" type="text" placeholder="Nhập từ khóa" class="input-medium" name="txtSearch">
-                            </div>
-                            <button type="submit"><i class="icon-search"></i></button>
-                        </div>
-                    </li>
-                </form>
+                <!--<form id="header-search-form" class="fl" accept-charset="utf-8" method="post" action="/searchPost" style="margin: 0px;">-->
+                    <!--<li class="ml-menu">-->
+                        <!--<div class="tt-search">-->
+                            <!--<div>-->
+                                <!--<input style="height: 24px;width: 190px;" type="text" placeholder="Nhập từ khóa" class="input-medium" name="txtSearch">-->
+                            <!--</div>-->
+                            <!--<button type="submit"><i class="icon-search"></i></button>-->
+                        <!--</div>-->
+                    <!--</li>-->
+                <!--</form>-->
 
                 <li class="ml-menu ml-right ext-menu user">
 
@@ -27,10 +26,10 @@
                 <li class="ml-menu ml-right">
                     <a style="text-decoration: none;" href="/logout">Logout</a>
                 </li>
-                <li class="ml-menu ml-right">
-                    <a style="text-decoration: none;" href="/about"> Hello <%=username%></a>
+                <!--<li class="ml-menu ml-right">-->
+                    <!--<a style="text-decoration: none;" href="/about"> Hello <%=username%></a>-->
 
-                </li>
+                <!--</li>-->
                 <li class="ml-menu ml-right">
                     <%if(username && typeof username !== 'undefined') {%>
                     <a style="text-decoration: none;" href="postAdd"  style="width:83px; display: inline ">Viết Blog</a>

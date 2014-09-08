@@ -142,7 +142,8 @@ var homeController = {
         var description = req.body._description;
         var content = req.body._content;
         var category = req.body.tags_;
-        postsSchema.posts.update({_id: id}, {$set: {title: title, image: image, description: description, content: content, category: category}}, function (err, result) {
+        var tag=req.body._tags;
+        postsSchema.posts.update({_id: id}, {$set: {title: title, image: image, description: description, content: content, category: category,tag:tag}}, function (err, result) {
             if (err == null) {
                 if (result) {
                     res.redirect('/');

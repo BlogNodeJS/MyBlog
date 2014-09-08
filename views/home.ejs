@@ -56,7 +56,7 @@
                                                 <font color="#00afdb" size="6pt">
                                                     <span id="phContent_ddlArticle_lbStt_0"><%= idx+1 %></span>/
                                                 </font>
-                                                <a id="phContent_ddlArticle_hplTitle_0" href="/postDetail?id=<%=p._id %>"><%= p.title %></a>
+                                                <a STYLE="text-decoration: none;" id="phContent_ddlArticle_hplTitle_0" href="/postDetail?id=<%=p._id %>"><%= p.title %></a>
 
                                             </div>
                                             <%if( username && typeof username !== 'undefined'){ %>
@@ -64,7 +64,6 @@
                                             <%}else {%>
                                                 <a href="/postEdit?id=<%=p._id %>" class="sl-menu-btn" style="display: none; width:auto;margin-left: 48px;position: relative;top: -42px;right: -665px">Sửa</a>
                                             <%}%>
-                                            <a href="/createNewCategory">Insert</a>
                                             <div class="wrap_right_child_other">
                                                 Đăng bởi <b>
                                                 <span id="phContent_ddlArticle_lbAuthor_0"><%= p.user[0] %></span></b>,

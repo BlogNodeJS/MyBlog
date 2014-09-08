@@ -20,11 +20,11 @@
     <li>
         <div class="content" style="margin-top: 20px;">
             <div class="img">
-                <img src="../images/<%= todo.avatar %>"
-                     alt="Profile" style="width: 200px;height:200px;">
+                <img  src="../images/<%= todo.avatar %>"
+                     alt="Profile" style="width: 200px;height:200px;" class="boder-radius">
             </div>
             <div class="text">
-                <h4><a style="text-decoration: none;" href="#" >Hi,I'm <%= todo.displayName %></a></h4>
+                <h4><a style="text-decoration: none;" href="/about" >Hi,I'm <%= todo.displayName %></a></h4>
 
                 <h5 style="color: red;"><%= todo.aboutMe %></h5>
             </div>
@@ -45,6 +45,12 @@
                 <a style="text-decoration: none;" href="/postByCategoryname?name=<%=c.categoryName%>"><%= c.categoryName %></a>
             </li>
             <% });%>
+            <br>
+            <%if( username && typeof username !== 'undefined'){ %>
+            <a href="/createNewCategory" style="display: inline;text-decoration: none;color: #ff0000;"><i>THÊM CATEGORY</i></a>
+            <%}else {%>
+            <a href="/createNewCategory" style="display: none;text-decoration: none;color: #ff0000;"><i>THÊM CATEGORY</i></a>
+            <%}%>
         </ul>
     </li>
     <% }%>
