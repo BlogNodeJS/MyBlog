@@ -20,7 +20,7 @@ var homeController = {
                                 postsSchema.posts.find().sort({date: -1, _id: -1}).exec( function(errP, arrPost){
                                     if(arrPost && arrPost.length > 0) {
                                         req.session.Posts = arrPost;
-                                        postsSchema.posts.find().sort({date:-1, _id: -1}).exec(function(err, arrNewPost){
+                                        postsSchema.posts.find().sort({date:-1, _id: -1}).limit(5).exec(function(err, arrNewPost){
                                             req.session.NewPosts = arrNewPost;
                                             res.render('home', {username: req.session.username, user: user, arrCategory: arrCategory, arrTag: arrTag, arrPost: arrPost, arrNewPost: arrNewPost});
                                         });
@@ -82,6 +82,17 @@ var homeController = {
         var str = req.body._tags;
         var arrs = str.split(",");
 
+        for (var x in arrs)
+        {
+            new tagsSchema.tags({
+                _id:null,
+                tagsName: arrs[x]
+
+            }).save(function (err, u, count) {
+
+
+                });
+        }
 
         new postsSchema.posts({
 
