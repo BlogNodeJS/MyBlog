@@ -39,7 +39,7 @@
                     </div>
 
                     <!--body right-->
-                    <div class="bd-right">
+                    <div class="bd-right" style="height: 1500px;">
                         <%if( username && typeof username !== 'undefined'){ %>
                         <div style="margin-left: 200px;margin-right: 0px;">
                             <br>
@@ -48,7 +48,12 @@
                             <% user.forEach( function (todo){ %>
                             <label>
 
-                                <center><img src='../images/<%=todo.avatar%>' style="height: 200px;width:200px;"></center>
+                                <center><img src="/images/<%=todo.avatar%>" style="height: 200px;width:200px;border: 2px solid aliceblue;
+-moz-border-radius: 10px;
+-webkit-border-radius: 10px;
+-ms-border-radius: 10px;
+-o-border-radius: 10px;
+border-radius: 20px;"></center>
                                 <br>
                                 <center><input style="height: 40px;width: 404px;" type="file" name="image_" id="anhbia" value=""
                                     class="entry-width-long"
@@ -93,12 +98,13 @@
                                 <% } %>
 
                             </label>
+                            <br>
                             <label>
                                 <br/>
 
                                 <div class="float-right" style="padding-top:22px;">
-                                    <input type="submit" value="Cập nhật" class="cebtn" >
-                                    <a href="/about/aboutDetail" class="sl-menu-btn" style="height:29px;width: 85px; " title="Update this todo item">Đổi mật khẩu</a>
+                                    <input style="height:29px;width: 105px; " type="submit" value="Cập nhật" class="cebtn" >
+                                    <a href="/about/aboutDetail" class="sl-menu-btn" style="height:29px;width: 105px; " title="Update this todo item">Đổi mật khẩu</a>
                                 </div>
                             </label>
                             <hr>
@@ -127,7 +133,12 @@
                             <% user.forEach( function (todo){ %>
                             <label>
 
-                                <center><img src='<%=todo.avatar%>' style="height: 200px;width:200px;"></center>
+                                <center><img src='../images/<%=todo.avatar%>' style="height: 200px;width:200px;border: 2px solid aliceblue;
+-moz-border-radius: 10px;
+-webkit-border-radius: 10px;
+-ms-border-radius: 10px;
+-o-border-radius: 10px;
+border-radius: 20px;"></center>
                                 <br>
                                 <center><input style=" visibility : hidden;height: 40px;width: 404px;" type="file" name="entry_thumb" id="anhbia" value=""
                                                class="entry-width-long"

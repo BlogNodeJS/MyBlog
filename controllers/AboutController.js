@@ -31,7 +31,7 @@ var aboutController = {
         var email = req.body.email_;
         var about = req.body.about_;
         var image;
-        if(req.files.name){
+        if(req.files.image_){
            image = req.files.image_.name;
         }else {
             image = req.body.img;

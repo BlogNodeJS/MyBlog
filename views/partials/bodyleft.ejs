@@ -20,11 +20,11 @@
     <li>
         <div class="content" style="margin-top: 20px;">
             <div class="img">
-                <img  src="../images/<%= todo.avatar %>"
+                <img src="../images/<%= todo.avatar %>"
                      alt="Profile" style="width: 200px;height:200px;" class="boder-radius">
             </div>
             <div class="text">
-                <h4><a style="text-decoration: none;" href="/about" >Hi,I'm <%= todo.displayName %></a></h4>
+                <h4><a style="text-decoration: none;" href="/about">Hi,I'm <%= todo.displayName %></a></h4>
 
                 <h5 style="color: red;"><%= todo.aboutMe %></h5>
             </div>
@@ -42,14 +42,17 @@
         <ul>
             <% arrCategory.forEach(function(c){ %>
             <li>
-                <a style="text-decoration: none;" href="/postByCategoryname?name=<%=c.categoryName%>"><%= c.categoryName %></a>
+                <a style="text-decoration: none;" href="/postByCategoryname?name=<%=c.categoryName%>"><%= c.categoryName
+                    %></a>
             </li>
             <% });%>
             <br>
             <%if( username && typeof username !== 'undefined'){ %>
-            <a href="/createNewCategory" style="display: inline;text-decoration: none;color: #ff0000;"><i>THÊM CATEGORY</i></a>
+            <a href="/createNewCategory" style="display: inline;text-decoration: none;color: #ff0000;"><i>THÊM
+                CATEGORY</i></a>
             <%}else {%>
-            <a href="/createNewCategory" style="display: none;text-decoration: none;color: #ff0000;"><i>THÊM CATEGORY</i></a>
+            <a href="/createNewCategory" style="display: none;text-decoration: none;color: #ff0000;"><i>THÊM
+                CATEGORY</i></a>
             <%}%>
         </ul>
     </li>
@@ -63,7 +66,9 @@
         <ul>
             <% arrNewPost.forEach(function(newpost) { %>
             <li>
+                <hr>
                 <a style="text-decoration: none;" href="/postByName?name=<%= newpost.title %>"><%= newpost.title %></a>
+
             </li>
             <% });%>
         </ul>
@@ -76,7 +81,17 @@
     <li class="sl-menu ext-menu item-1230">
         <p style="padding-left:0;color: red;">TAG</p>
         <% arrTag.forEach( function(t){ %>
-        <a style="text-decoration: none;" href="/postByTags?name=<%= t.tagsName %>"><%= t.tagsName %></a>
+        <a style="font-size: 15px;margin: 0 5px 5px 0;
+                                            padding: 4px 14px;
+                                            display: inline-block;
+                                            border: 1px solid #CCCCCC;
+                                            border-radius: 50px 50px 50px 50px;
+                                            background: #fff;
+                                            font-family: Georgia;
+                                            font-style: italic;
+                                            font-size: 90% !important;
+                                            text-decoration: none;" href="/postByTags?name=<%= t.tagsName %>"><%=
+            t.tagsName %></a>
         <% });%>
     </li>
     <%}%>

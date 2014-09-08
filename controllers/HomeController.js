@@ -63,7 +63,7 @@ var homeController = {
 
         var formattedDate = dd + '/' + mm + '/' + yy;
 
-        var i = req.body.displayName;
+        var i = req.body.idu;
         var f = req.body.full;
         var pone = req.body.phone;
         var e = req.body.email;
@@ -241,7 +241,8 @@ var homeController = {
     },
 
     logout: function(req, res){
-        res.render('home', {username:null ,arrPost: req.session.Posts, user: req.session.Users, arrCategory: req.session.Categorys, arrTag: req.session.Tags, arrNewPost: req.session.NewPosts, errors: "" });
+        req.session.username = null;
+        res.render('home', {username:req.session.username ,arrPost: req.session.Posts, user: req.session.Users, arrCategory: req.session.Categorys, arrTag: req.session.Tags, arrNewPost: req.session.NewPosts, errors: "" });
     },
     findCategory: function(req,res){
 
