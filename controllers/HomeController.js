@@ -172,11 +172,24 @@ var homeController = {
         });
     },
 
+    goSearch: function(req, res){
+        var search = req.param('txtSearch');
+        postsSchema.posts.find({title: {$regex: search, $options: 'i'}}, function(err, p){
+            if(err == null && p && p.length > 0){
+                res.render('searchPost', {username: req.session.username,arrPost: p, user: req.session.Users, arrCategory: req.session.Categorys, arrTag: req.session.Tags, arrNewPost: req.session.NewPosts });
+            }else {
+                res.render('searchPost', {username: req.session.username,arrPost: null, user: req.session.Users, arrCategory: req.session.Categorys, arrTag: req.session.Tags, arrNewPost: req.session.NewPosts, notification: "Không tìm thấy bài viết."});
+            }
+        });
+    },
+
     searchPost: function (req, res) {
         var search = req.param('txtSearch');
-        postsSchema.posts.find({ title: search }, function(err, p){
-            if(p && p.length > 0){
-                res.render('postDetails', {username: req.session.username,arrPost: p, user: req.session.Users, arrCategory: req.session.Categorys, arrTag: req.session.Tags, arrNewPost: req.session.NewPosts });
+        postsSchema.posts.find({title: {$regex: search, $options: 'i'}}, function(err, p){
+            if(err == null && p && p.length > 0){
+                res.render('searchPost', {username: req.session.username,arrPost: p, user: req.session.Users, arrCategory: req.session.Categorys, arrTag: req.session.Tags, arrNewPost: req.session.NewPosts });
+            }else {
+                res.render('searchPost', {username: req.session.username,arrPost: null, user: req.session.Users, arrCategory: req.session.Categorys, arrTag: req.session.Tags, arrNewPost: req.session.NewPosts, notification: "Không tìm thấy bài viết."});
             }
         });
     },
@@ -272,7 +285,8 @@ module.exports = function (router) {
     router.get('/postByName', homeController.findPostByName);
     router.get('/postByTags', homeController.findPostByTags);
     router.get('/postByCategoryname', homeController.findPostByCategoryname);
-    router.get('/searchPost', homeController.searchPost);
+    router.post('/searchPost', homeController.searchPost); //
+    router.get('/searchPost', homeController.goSearch); //
     router.get('/login', homeController.getLogin);
     router.post('/login', homeController.login);
     router.get('/logout', homeController.logout);
