@@ -98,7 +98,8 @@
 <hr>
 <label>
  <input type="hidden" value='<%= todo.image %>' name="_image" >
-    <strong>Ảnh bìa</strong>
+    <strong>Ảnh bìa</strong> <br/>
+    <center><img src='../images/<%=todo.image%>' name="image" style="height: 200px;width:200px;"></center> <br />
     <input  style="height: 40px;width: 404px;" type="file" name="hinh" id="anhbia" value='<%=todo.image%>' class="entry-width-long"
            placeholder="Xin mời nhập tag">
     <p style="line-height:16px;font-size:11px;color:#777;">Định dạng : jpg , png . Kích thước ~750px*250px</p>

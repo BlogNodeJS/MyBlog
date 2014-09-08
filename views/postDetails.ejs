@@ -55,7 +55,8 @@
                                 <li>
                                     <div style="margin-left: 40px;border-top: 1px;border-color: red;">
                                         <p style="font-size: 15px;">TAG:</p>
-                                        <a href="#" style="font-size: 15px;margin: 0 5px 5px 0;
+                                        <% p.tags.forEach(function(t) { %>
+                                        <a href="/postByTags?name=<%= t %>" style="font-size: 15px;margin: 0 5px 5px 0;
                                             padding: 4px 14px;
                                             display: inline-block;
                                             border: 1px solid #CCCCCC;
@@ -65,7 +66,8 @@
                                             font-style: italic;
                                             font-size: 90% !important;
                                             text-decoration: none;">
-                                            <%- p.tags %></a>
+                                            <%= t %></a>
+                                        <%});%>
                                     </div>
                                 </li>
                             </ul>

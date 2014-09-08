@@ -30,7 +30,12 @@ var aboutController = {
         var phone = req.body.phone_;
         var email = req.body.email_;
         var about = req.body.about_;
-        var image=req.body.image_;
+        var image;
+        if(req.files.name){
+           image = req.files.image_.name;
+        }else {
+            image = req.body.img;
+        }
         var display=req.body.user;
         var user=req.body.username;
         userSchema.users.update({_id: id}, {$set: {displayName:display, fullname: full, phone: phone, email: email, aboutMe: about, avatar:image}}, function (err, result) {

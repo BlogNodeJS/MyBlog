@@ -15,7 +15,7 @@
 </head>
 <!--<body class="container">-->
 <body>
-<form action="" method="post">
+<form action="" method="post" enctype="multipart/form-data">
     <!--<div class="background">-->
     <div class="container">
         <a href="#" class="back-to-top"><i class="icon-long-arrow-up"></i></a>
@@ -47,11 +47,11 @@
                             <% user.forEach( function (todo){ %>
                             <label>
 
-                                <center><img src='<%=todo.avatar%>' style="height: 200px;width:200px;"></center>
+                                <center><img src='../images/<%=todo.avatar%>' style="height: 200px;width:200px;"></center>
                                 <br>
-                                <center><input style="height: 40px;width: 404px;" type="file" name="entry_thumb" id="anhbia" value=""
+                                <center><input style="height: 40px;width: 404px;" type="file" name="image_" id="anhbia" value=""
                                     class="entry-width-long"
-                                    placeholder="Xin mời nhập tag">
+                                    placeholder="">
 
                                     <p style="line-height:16px;font-size:11px;color:#777;">Định dạng : jpg , png . Kích thước ~200px * 200px</p></center>
                             </label>
@@ -60,7 +60,7 @@
 
 
 
-                                <input type="hidden" value='<%=todo.avatar%>' name="image_">
+                                <input type="hidden" value='<%=todo.avatar%>' name="img">
                                 <input type="hidden" name="id" value='<%= todo._id %>'>
                                 <input type="hidden" name="username" value='<%= todo.username %>'>
                                 <strong>Họ và tên</strong>

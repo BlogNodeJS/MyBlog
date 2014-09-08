@@ -98,7 +98,7 @@ var homeController = {
 
             _id:null,
             title: req.body._title,
-            image: req.body._image,
+            image: req.files._image.name,
             description: req.body._description,
             content: req.body._content,
             date: formattedDate,
@@ -109,8 +109,6 @@ var homeController = {
                 res.redirect('postAdd');
             });
     },
-
-
 
 
     findPostByIdEdit: function (req, res) {
@@ -134,7 +132,13 @@ var homeController = {
     findPostByIdAndUpdate: function (req, res) {
         var id = req.param('id');
         var title = req.body._title;
-        var image = req.files.hinh.name;
+        var image;
+        if(req.files.hinh){
+            image = req.files.hinh.name;
+        }else{
+            image = req.body._image;
+        }
+
         var description = req.body._description;
         var content = req.body._content;
         var category = req.body.tags_;
