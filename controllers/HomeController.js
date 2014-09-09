@@ -80,13 +80,14 @@ var homeController = {
 
 
         var str = req.body._tags;
-        var arrs = str.split(",");
+        var space = str.replace(" ", "");
+        var arrs = space.split(",");
 
         for (var x in arrs)
         {
             new tagsSchema.tags({
                 _id:null,
-                tagsName: arrs[x]
+                tagsName: arrs[x].trim()
 
             }).save(function (err, u, count) {
 
@@ -164,6 +165,14 @@ var homeController = {
         });
     },
 
+    deletePost: function (req, res) {
+        var id = req.param('id');
+        postsSchema.posts.remove({_id: id }, function(err, p){
+            res.redirect('/');
+//            res.render('home', {username: req.session.username, arrPost: p, user: req.session.Users, arrCategory: req.session.Categorys, arrTag: req.session.Tags, arrNewPost: req.session.NewPosts });
+        });
+    },
+
     findPostByName: function( req, res ){
         var _name = req.param('name').trim();
         postsSchema.posts.find({ title: _name }, function(err, p){
@@ -208,7 +217,7 @@ var homeController = {
 
     findPostByTags: function (req, res){
         var _tag = req.param('name');
-        postsSchema.posts.find({ tags: _tag }, function(err, p){
+        postsSchema.posts.find({ tags: {$regex: _tag, $options: 'i'} }, function(err, p){
             if(p && p.length > 0){
                 res.render('tagDetails', {username: req.session.username,arrPost: p, user: req.session.Users, arrCategory: req.session.Categorys, arrTag: req.session.Tags, arrNewPost: req.session.NewPosts });
             }else{
@@ -278,6 +287,13 @@ var homeController = {
                     res.redirect('/');
                 }
             });
+    },
+    deletePosts: function (req, res) {
+        var id = req.body.idp;
+        postsSchema.posts.remove({_id: id }, function(err, p){
+            res.redirect('/');
+//            res.render('home', {username: req.session.username, arrPost: p, user: req.session.Users, arrCategory: req.session.Categorys, arrTag: req.session.Tags, arrNewPost: req.session.NewPosts });
+        });
     }
 };
 
@@ -298,5 +314,7 @@ module.exports = function (router) {
     router.post('/postEdit',homeController.findPostByIdAndUpdate);
     router.get('/createNewCategory',homeController.findCategory);
     router.post('/createNewCategory',homeController.insertCategory);
+    router.post('/postDetail',homeController.deletePost);
+    router.post('/',homeController.deletePosts);
     return router;
 };

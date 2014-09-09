@@ -18,7 +18,7 @@
 </head>
 <!--<body class="container">-->
 <body>
-<form >
+<form method="post" action="">
     <!--<div class="background">-->
     <div class="container">
         <a href="#" class="back-to-top"><i class="icon-long-arrow-up"></i></a>
@@ -61,8 +61,10 @@
                                             </div>
                                             <%if( username && typeof username !== 'undefined'){ %>
                                                 <a href="/postEdit?id=<%=p._id %>" class="sl-menu-btn" style="display: inline; width:auto;margin-left: 48px;position: relative;top: -42px;right: -665px">Sửa</a>
+
                                             <%}else {%>
                                                 <a href="/postEdit?id=<%=p._id %>" class="sl-menu-btn" style="display: none; width:auto;margin-left: 48px;position: relative;top: -42px;right: -665px">Sửa</a>
+
                                             <%}%>
                                             <div class="wrap_right_child_other">
                                                 Đăng bởi <b>
