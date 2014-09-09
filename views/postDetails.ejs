@@ -35,7 +35,7 @@
 
                     </div>
                     <div class="bd-right" style="padding-top: 5px;padding-bottom: 200px;">
-                        <div style="margin-left: 30px;margin-right: 40px;">
+                        <div style="margin-left: 50px;margin-right: 70px;">
                             <% arrPost.forEach( function(p){ %>
                             <ul>
                                 <center><h2 style="font-size: 40px;font-family: 'Rancho', serif"><%= p.title %></h2>
@@ -43,13 +43,13 @@
 
                                 <%if( username && typeof username !== 'undefined'){ %>
 
-                                <a href="/postEdit?id=<%=p._id %>" class="sl-menu-btn" style="display: inline; width:auto;position: relative;top: -42px;right: -665px">Sửa</a>
-                                <input type="submit" value="Delete My Data" />
+                                <a href="/postEdit?id=<%=p._id %>" class="sl-menu-btn" style="display: inline; width:auto;position: relative;top: -42px;right: -93%">Sửa</a>
+                                <input class="sl-menu-btn"  type="submit" value="Xoá" style="display: inline; width:auto;position: relative;top: -42px;right: -77%"/>
 
 
                                 <%}else {%>
-                                <a href="/postEdit?id=<%=p._id %>" class="sl-menu-btn" style="display: none; width:auto;position: relative;top: -42px;right: -665px">Sửa</a>
-                                <input type="submit" value="Delete My Data" />
+                                <a href="/postEdit?id=<%=p._id %>" class="sl-menu-btn" style="display: none; width:auto;position: relative;top: -42px;right: -93%">Sửa</a>
+                                <input class="sl-menu-btn"  type="submit" value="Xoá" style="display: none; width:auto;position: relative;top: -42px;right: -77%"/>
 
                                 <%}%>
 
